@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Almoxarifado</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">Almoxarifado</div>
+                <div class="subtitle">Sistema de Requisições</div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul class="menu-list">
+<li class="menu-item"><a href="index.html"><span>Dashboard</span></a></li>
+<li class="menu-item"><a href="requisicoes.html" class="active"><span>Requisições</span></a></li>
+<li class="menu-item"><a href="analytics.html"><span>Analytics</span></a></li>
+                </ul>
+                <div class="menu-section-title">GESTÃO</div>
+                <ul class="menu-list">
+<li class="menu-item"><a href="#"><span>Importar Dados</span></a></li>
+<li class="menu-item"><a href="#"><span>Usuários</span></a></li>
+<li class="menu-item"><a href="#"><span>Análise de Desempenho</span></a></li>
+<li class="menu-item"><a href="#"><span>Exportar Dados</span></a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <span class="user-avatar">G</span>
+                    <div class="user-details">
+                        <div class="user-name">Gabriel Ribeiro Ramos</div>
+                        <div class="user-role">Admin</div>
+                    </div>
+                </div>
+                <div class="sidebar-controls">
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <button id="toggle-sidebar-btn" class="sidebar-toggle-btn">›</button>
+            <header class="main-header">
+                <h1>Gerenciamento de Baixas</h1>
+                <p>Visualize e gerencie todas as requisições de materiais</p>
+            </header>
+
+            <section class="filters-section">
+                <h2>Filtros de Pesquisa</h2>
+                <p>Use os filtros abaixo para encontrar requisições específicas</p>
+                <div class="filters-grid">
+                    <div class="filter-item">
+                        <label for="filter-id">ID da Requisição</label>
+                        <input type="text" id="filter-id" placeholder="Ex: 123">
+                    </div>
+                    <div class="filter-item">
+                        <label for="filter-projeto">Projeto/Ocorrência</label>
+                        <input type="text" id="filter-projeto" placeholder="Ex: 1234567">
+                    </div>
+                    <div class="filter-item">
+                        <label for="filter-reserva">Reserva</label>
+                        <input type="text" id="filter-reserva" placeholder="Ex: 12345">
+                    </div>
+                    <div class="filter-item">
+                        <label for="filter-codigo">Código</label>
+                        <input type="text" id="filter-codigo" placeholder="Ex: MAT001 ou Parafuso">
+                    </div>
+                    <div class="filter-item">
+                        <label for="filter-situacao">Situação</label>
+                        <select id="filter-situacao">
+                            <option value="">Todos os status</option>
+                            <option value="PENDENTE DE BAIXA">PENDENTE DE BAIXA</option>
+                            <option value="BAIXADO">BAIXADO</option>
+                            <option value="BAIXA PARCIAL">BAIXA PARCIAL</option>
+                            <option value="ERRO">ERRO</option>
+                        </select>
+                    </div>
+                    <!-- Outros filtros como Data Início, Data Fim, Solicitante, Prefixo da Equipe podem ser adicionados depois se necessário -->
+                </div>
+                <div class="filter-actions">
+                    <button id="search-filters-btn">🔍 Pesquisar</button>
+                    <button id="clear-filters-btn">Limpar Filtros</button>
+                </div>
+            </section>
+
+            <section id="requisicoes-list">
+                <h2>Requisições de Materiais</h2>
+                <div class="controls">
+                    <button id="sync-requisicoes-btn">Sincronizar Requisições</button>
+                </div>
+                <div class="table-container">
+                    <table id="requisicoes-table">
+                        <thead>
+                            <tr>
+<th>ID<br>Requisição</th>
+<th>Projeto</th>
+<th>Reserva</th>
+<th>Código</th>
+<th>Descrição</th>
+<th>Qtd.<br>Solicitada</th>
+<th>Qtd.<br>Entregue</th>
+<th>Qtd.<br>Baixada</th>
+<th>Situação</th>
+<th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Dados das requisições serão carregados aqui -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js?v=1.9"></script>
+</body>
+</html>

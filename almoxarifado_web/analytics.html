@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Almoxarifado - Analytics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">Almoxarifado</div>
+                <div class="subtitle">Sistema de Requisições</div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul class="menu-list">
+<li class="menu-item"><a href="index.html"><span>Dashboard</span></a></li>
+<li class="menu-item"><a href="requisicoes.html"><span>Requisições</span></a></li>
+<li class="menu-item"><a href="analytics.html" class="active"><span>Analytics</span></a></li>
+                </ul>
+                <div class="menu-section-title">GESTÃO</div>
+                <ul class="menu-list">
+<li class="menu-item"><a href="#"><span>Importar Dados</span></a></li>
+<li class="menu-item"><a href="#"><span>Usuários</span></a></li>
+<li class="menu-item"><a href="#"><span>Análise de Desempenho</span></a></li>
+<li class="menu-item"><a href="#"><span>Exportar Dados</span></a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <span class="user-avatar">G</span>
+                    <div class="user-details">
+                        <div class="user-name">Gabriel Ribeiro Ramos</div>
+                        <div class="user-role">Admin</div>
+                    </div>
+                </div>
+                <div class="sidebar-controls">
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <button id="toggle-sidebar-btn" class="sidebar-toggle-btn">›</button>
+            <header class="main-header">
+                <h1>Analytics</h1>
+                <p>Análise detalhada das requisições</p>
+            </header>
+
+            <section class="analytics-section">
+                <h2>Projetos com Pendências</h2>
+                <div id="projetos-pendentes-list">
+                    <!-- Lista de projetos com pendências será carregada aqui -->
+                </div>
+            </section>
+
+            <section class="analytics-section">
+                <h2>Itens Pendentes</h2>
+                <div id="itens-pendentes-list">
+                    <!-- Lista de itens pendentes será carregada aqui -->
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js?v=1.9"></script>
+</body>
+</html>
