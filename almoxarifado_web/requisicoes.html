@@ -3,117 +3,317 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestão de Almoxarifado</title>
+    <title>Gestão de Baixas - Almoxarifado Digital</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="description" content="Interface avançada para gestão e processamento de baixas de materiais do almoxarifado">
 </head>
 <body>
     <div class="app-container">
         <aside class="sidebar">
             <div class="sidebar-header">
-                <div class="logo">Almoxarifado</div>
-                <div class="subtitle">Sistema de Requisições</div>
+                <div class="logo">
+                    <span>Almoxarifado Digital</span>
+                </div>
+                <div class="subtitle">Gestão Inteligente de Materiais</div>
             </div>
+            
             <nav class="sidebar-nav">
+                <div class="menu-section-title">Principal</div>
                 <ul class="menu-list">
-<li class="menu-item"><a href="index.html"><span>Dashboard</span></a></li>
-<li class="menu-item"><a href="requisicoes.html" class="active"><span>Requisições</span></a></li>
-<li class="menu-item"><a href="analytics.html"><span>Analytics</span></a></li>
+                    <li class="menu-item">
+                        <a href="index.html">
+                            <span>Dashboard Executivo</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="requisicoes.html" class="active">
+                            <span>Gestão de Baixas</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="analytics.html">
+                            <span>Analytics Avançado</span>
+                        </a>
+                    </li>
                 </ul>
-                <div class="menu-section-title">GESTÃO</div>
+                
+                <div class="menu-section-title">Operações</div>
                 <ul class="menu-list">
-<li class="menu-item"><a href="#"><span>Importar Dados</span></a></li>
-<li class="menu-item"><a href="#"><span>Usuários</span></a></li>
-<li class="menu-item"><a href="#"><span>Análise de Desempenho</span></a></li>
-<li class="menu-item"><a href="#"><span>Exportar Dados</span></a></li>
+                    <li class="menu-item">
+                        <a href="#">
+                            <span>Sincronização de Dados</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">
+                            <span>Controle de Estoque</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">
+                            <span>Relatórios Gerenciais</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="menu-section-title">Administração</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="#">
+                            <span>Gestão de Usuários</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">
+                            <span>Configurações do Sistema</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">
+                            <span>Auditoria e Logs</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
+            
             <div class="sidebar-footer">
                 <div class="user-info">
-                    <span class="user-avatar">G</span>
+                    <div class="user-avatar">GR</div>
                     <div class="user-details">
-                        <div class="user-name">Gabriel Ribeiro Ramos</div>
-                        <div class="user-role">Admin</div>
+                        <div class="user-name">Gabriel Ribeiro</div>
+                        <div class="user-role">Administrador do Sistema</div>
                     </div>
-                </div>
-                <div class="sidebar-controls">
                 </div>
             </div>
         </aside>
 
         <main class="main-content">
-            <button id="toggle-sidebar-btn" class="sidebar-toggle-btn">›</button>
+            <button id="toggle-sidebar-btn" class="sidebar-toggle-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12h18m-9-9l9 9-9 9"/>
+                </svg>
+            </button>
+            
             <header class="main-header">
-                <h1>Gerenciamento de Baixas</h1>
-                <p>Visualize e gerencie todas as requisições de materiais</p>
+                <div>
+                    <h1>Gestão Inteligente de Baixas</h1>
+                    <p>Interface avançada para processamento eficiente de requisições de materiais com controle em tempo real</p>
+                </div>
             </header>
 
             <section class="filters-section">
-                <h2>Filtros de Pesquisa</h2>
-                <p>Use os filtros abaixo para encontrar requisições específicas</p>
+                <h2>Sistema de Filtros Avançados</h2>
+                <p>Utilize os filtros inteligentes para localizar rapidamente as requisições específicas que necessitam de atenção</p>
+                
                 <div class="filters-grid">
                     <div class="filter-item">
-                        <label for="filter-id">ID da Requisição</label>
-                        <input type="text" id="filter-id" placeholder="Ex: 123">
+                        <label for="filter-id">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; margin-right: 0.5rem;">
+                                <path d="M9 12l2 2 4-4"/>
+                                <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
+                                <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
+                            </svg>
+                            ID da Requisição
+                        </label>
+                        <input type="text" id="filter-id" placeholder="Digite o ID da requisição...">
                     </div>
+                    
                     <div class="filter-item">
-                        <label for="filter-projeto">Projeto/Ocorrência</label>
-                        <input type="text" id="filter-projeto" placeholder="Ex: 1234567">
+                        <label for="filter-projeto">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; margin-right: 0.5rem;">
+                                <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2z"/>
+                                <path d="M8 21v-4a2 2 0 012-2h4a2 2 0 012 2v4"/>
+                            </svg>
+                            Projeto/Ocorrência
+                        </label>
+                        <input type="text" id="filter-projeto" placeholder="Número do projeto ou ocorrência...">
                     </div>
+                    
                     <div class="filter-item">
-                        <label for="filter-reserva">Reserva</label>
-                        <input type="text" id="filter-reserva" placeholder="Ex: 12345">
+                        <label for="filter-reserva">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; margin-right: 0.5rem;">
+                                <path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/>
+                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                            </svg>
+                            Número da Reserva
+                        </label>
+                        <input type="text" id="filter-reserva" placeholder="Código da reserva...">
                     </div>
+                    
                     <div class="filter-item">
-                        <label for="filter-codigo">Código</label>
-                        <input type="text" id="filter-codigo" placeholder="Ex: MAT001 ou Parafuso">
+                        <label for="filter-codigo">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; margin-right: 0.5rem;">
+                                <path d="M4 7h16"/>
+                                <path d="M4 12h16"/>
+                                <path d="M4 17h16"/>
+                            </svg>
+                            Código ou Descrição
+                        </label>
+                        <input type="text" id="filter-codigo" placeholder="Código do material ou descrição...">
                     </div>
+                    
                     <div class="filter-item">
-                        <label for="filter-situacao">Situação</label>
+                        <label for="filter-situacao">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; margin-right: 0.5rem;">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M12 1v6m0 6v6"/>
+                            </svg>
+                            Status da Requisição
+                        </label>
                         <select id="filter-situacao">
-                            <option value="">Todos os status</option>
-                            <option value="PENDENTE DE BAIXA">PENDENTE DE BAIXA</option>
-                            <option value="BAIXADO">BAIXADO</option>
-                            <option value="BAIXA PARCIAL">BAIXA PARCIAL</option>
-                            <option value="ERRO">ERRO</option>
+                            <option value="">Todos os status disponíveis</option>
+                            <option value="PENDENTE DE BAIXA">🔄 Pendente de Baixa</option>
+                            <option value="BAIXADO">✅ Processado com Sucesso</option>
+                            <option value="BAIXA PARCIAL">⚠️ Processamento Parcial</option>
+                            <option value="ERRO">🚨 Requer Intervenção</option>
                         </select>
                     </div>
-                    <!-- Outros filtros como Data Início, Data Fim, Solicitante, Prefixo da Equipe podem ser adicionados depois se necessário -->
                 </div>
+                
                 <div class="filter-actions">
-                    <button id="search-filters-btn">🔍 Pesquisar</button>
-                    <button id="clear-filters-btn">Limpar Filtros</button>
+                    <button id="search-filters-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="M21 21l-4.35-4.35"/>
+                        </svg>
+                        Aplicar Filtros
+                    </button>
+                    <button id="clear-filters-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 6h18"/>
+                            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+                            <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+                        </svg>
+                        Limpar Filtros
+                    </button>
                 </div>
             </section>
 
             <section id="requisicoes-list">
-                <h2>Requisições de Materiais</h2>
+                <h2>Central de Processamento de Requisições</h2>
                 <div class="controls">
-                    <button id="sync-requisicoes-btn">Sincronizar Requisições</button>
+                    <button id="sync-requisicoes-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.5rem;">
+                            <path d="M23 4v6h-6"/>
+                            <path d="M1 20v-6h6"/>
+                            <path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 013.51 15"/>
+                        </svg>
+                        Sincronizar com Supabase
+                    </button>
                 </div>
+                
                 <div class="table-container">
                     <table id="requisicoes-table">
                         <thead>
                             <tr>
-<th>ID<br>Requisição</th>
-<th>Projeto</th>
-<th>Reserva</th>
-<th>Código</th>
-<th>Descrição</th>
-<th>Qtd.<br>Solicitada</th>
-<th>Qtd.<br>Entregue</th>
-<th>Qtd.<br>Baixada</th>
-<th>Situação</th>
-<th>Ações</th>
+                                <th>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M9 12l2 2 4-4"/>
+                                        </svg>
+                                        ID Requisição
+                                    </div>
+                                </th>
+                                <th>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2z"/>
+                                        </svg>
+                                        Projeto
+                                    </div>
+                                </th>
+                                <th>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                        </svg>
+                                        Reserva
+                                    </div>
+                                </th>
+                                <th>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M4 7h16"/>
+                                            <path d="M4 12h16"/>
+                                        </svg>
+                                        Código
+                                    </div>
+                                </th>
+                                <th>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                        </svg>
+                                        Descrição
+                                    </div>
+                                </th>
+                                <th>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                                        </svg>
+                                        Qtd. Solicitada
+                                    </div>
+                                </th>
+                                <th>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M20 6L9 17l-5-5"/>
+                                        </svg>
+                                        Qtd. Entregue
+                                    </div>
+                                </th>
+                                <th>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 2v20m8-10H4"/>
+                                        </svg>
+                                        Qtd. Baixada
+                                    </div>
+                                </th>
+                                <th>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                        Status
+                                    </div>
+                                </th>
+                                <th>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                        </svg>
+                                        Ações
+                                    </div>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Dados das requisições serão carregados aqui -->
+                            <tr>
+                                <td colspan="10" style="text-align: center; padding: 3rem; color: var(--text-muted);">
+                                    <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+                                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="opacity: 0.5;">
+                                            <path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/>
+                                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                                        </svg>
+                                        <div>
+                                            <div style="font-weight: 600; margin-bottom: 0.5rem;">Nenhuma requisição carregada</div>
+                                            <div style="font-size: 0.875rem;">Clique em "Sincronizar com Supabase" para carregar os dados</div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </section>
         </main>
     </div>
-    <script src="script.js?v=1.9"></script>
+
+    <script src="script.js?v=2.0"></script>
 </body>
 </html>

@@ -3,65 +3,284 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestão de Almoxarifado - Analytics</title>
+    <title>Analytics Avançado - Almoxarifado Digital</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="description" content="Análises avançadas e insights estratégicos para otimização do almoxarifado">
 </head>
 <body>
     <div class="app-container">
         <aside class="sidebar">
             <div class="sidebar-header">
-                <div class="logo">Almoxarifado</div>
-                <div class="subtitle">Sistema de Requisições</div>
+                <div class="logo">
+                    <span>Almoxarifado Digital</span>
+                </div>
+                <div class="subtitle">Gestão Inteligente de Materiais</div>
             </div>
+            
             <nav class="sidebar-nav">
+                <div class="menu-section-title">Principal</div>
                 <ul class="menu-list">
-<li class="menu-item"><a href="index.html"><span>Dashboard</span></a></li>
-<li class="menu-item"><a href="requisicoes.html"><span>Requisições</span></a></li>
-<li class="menu-item"><a href="analytics.html" class="active"><span>Analytics</span></a></li>
+                    <li class="menu-item">
+                        <a href="index.html">
+                            <span>Dashboard Executivo</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="requisicoes.html">
+                            <span>Gestão de Baixas</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="analytics.html" class="active">
+                            <span>Analytics Avançado</span>
+                        </a>
+                    </li>
                 </ul>
-                <div class="menu-section-title">GESTÃO</div>
+                
+                <div class="menu-section-title">Operações</div>
                 <ul class="menu-list">
-<li class="menu-item"><a href="#"><span>Importar Dados</span></a></li>
-<li class="menu-item"><a href="#"><span>Usuários</span></a></li>
-<li class="menu-item"><a href="#"><span>Análise de Desempenho</span></a></li>
-<li class="menu-item"><a href="#"><span>Exportar Dados</span></a></li>
+                    <li class="menu-item">
+                        <a href="#">
+                            <span>Sincronização de Dados</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">
+                            <span>Controle de Estoque</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">
+                            <span>Relatórios Gerenciais</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="menu-section-title">Administração</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="#">
+                            <span>Gestão de Usuários</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">
+                            <span>Configurações do Sistema</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">
+                            <span>Auditoria e Logs</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
+            
             <div class="sidebar-footer">
                 <div class="user-info">
-                    <span class="user-avatar">G</span>
+                    <div class="user-avatar">GR</div>
                     <div class="user-details">
-                        <div class="user-name">Gabriel Ribeiro Ramos</div>
-                        <div class="user-role">Admin</div>
+                        <div class="user-name">Gabriel Ribeiro</div>
+                        <div class="user-role">Administrador do Sistema</div>
                     </div>
-                </div>
-                <div class="sidebar-controls">
                 </div>
             </div>
         </aside>
 
         <main class="main-content">
-            <button id="toggle-sidebar-btn" class="sidebar-toggle-btn">›</button>
+            <button id="toggle-sidebar-btn" class="sidebar-toggle-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12h18m-9-9l9 9-9 9"/>
+                </svg>
+            </button>
+            
             <header class="main-header">
-                <h1>Analytics</h1>
-                <p>Análise detalhada das requisições</p>
+                <div>
+                    <h1>Analytics Avançado</h1>
+                    <p>Insights estratégicos e análises detalhadas para otimização contínua dos processos do almoxarifado</p>
+                </div>
             </header>
 
             <section class="analytics-section">
-                <h2>Projetos com Pendências</h2>
-                <div id="projetos-pendentes-list">
-                    <!-- Lista de projetos com pendências será carregada aqui -->
+                <h2>Análise de Projetos com Pendências</h2>
+                <div style="display: grid; grid-template-columns: 1fr 300px; gap: 2rem; align-items: start;">
+                    <div>
+                        <div id="projetos-pendentes-list" style="background: var(--bg-tertiary); border-radius: var(--border-radius); padding: 1.5rem; border: 1px solid var(--border-color); min-height: 200px;">
+                            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 150px; color: var(--text-muted);">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="opacity: 0.5; margin-bottom: 1rem;">
+                                    <path d="M3 3v18h18"/>
+                                    <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
+                                </svg>
+                                <div style="text-align: center;">
+                                    <div style="font-weight: 600; margin-bottom: 0.5rem;">Carregando análise de projetos...</div>
+                                    <div style="font-size: 0.875rem;">Os dados serão exibidos após a sincronização</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: var(--bg-tertiary); border-radius: var(--border-radius); padding: 1.5rem; border: 1px solid var(--border-color);">
+                        <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 1.125rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            Resumo Executivo
+                        </h3>
+                        <div style="space-y: 1rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color);">
+                                <span style="color: var(--text-secondary); font-size: 0.875rem;">Total de Projetos</span>
+                                <span style="color: var(--primary-400); font-weight: 700; font-size: 1.25rem;" id="total-projetos">0</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color);">
+                                <span style="color: var(--text-secondary); font-size: 0.875rem;">Com Pendências</span>
+                                <span style="color: var(--warning-500); font-weight: 700; font-size: 1.25rem;" id="projetos-pendentes">0</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0;">
+                                <span style="color: var(--text-secondary); font-size: 0.875rem;">Taxa de Eficiência</span>
+                                <span style="color: var(--success-500); font-weight: 700; font-size: 1.25rem;" id="taxa-eficiencia">0%</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <section class="analytics-section">
-                <h2>Itens Pendentes</h2>
-                <div id="itens-pendentes-list">
-                    <!-- Lista de itens pendentes será carregada aqui -->
+                <h2>Análise Detalhada de Itens Pendentes</h2>
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+                    <div>
+                        <div id="itens-pendentes-list" style="background: var(--bg-tertiary); border-radius: var(--border-radius); padding: 1.5rem; border: 1px solid var(--border-color); max-height: 400px; overflow-y: auto;">
+                            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 200px; color: var(--text-muted);">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="opacity: 0.5; margin-bottom: 1rem;">
+                                    <path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/>
+                                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                                </svg>
+                                <div style="text-align: center;">
+                                    <div style="font-weight: 600; margin-bottom: 0.5rem;">Analisando itens pendentes...</div>
+                                    <div style="font-size: 0.875rem;">Aguarde o carregamento dos dados</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div style="background: var(--bg-tertiary); border-radius: var(--border-radius); padding: 1.5rem; border: 1px solid var(--border-color); margin-bottom: 1rem;">
+                            <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                                </svg>
+                                Alertas Críticos
+                            </h3>
+                            <div style="space-y: 0.75rem;">
+                                <div style="background: var(--error-50); border: 1px solid var(--error-500); border-radius: var(--border-radius-sm); padding: 0.75rem;">
+                                    <div style="color: var(--error-600); font-weight: 600; font-size: 0.875rem; margin-bottom: 0.25rem;">
+                                        🚨 Itens Críticos
+                                    </div>
+                                    <div style="color: var(--error-700); font-size: 0.8rem;">
+                                        Requerem intervenção imediata
+                                    </div>
+                                </div>
+                                
+                                <div style="background: var(--warning-50); border: 1px solid var(--warning-500); border-radius: var(--border-radius-sm); padding: 0.75rem;">
+                                    <div style="color: var(--warning-600); font-weight: 600; font-size: 0.875rem; margin-bottom: 0.25rem;">
+                                        ⚠️ Atenção Necessária
+                                    </div>
+                                    <div style="color: var(--warning-700); font-size: 0.8rem;">
+                                        Monitoramento recomendado
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: var(--bg-tertiary); border-radius: var(--border-radius); padding: 1.5rem; border: 1px solid var(--border-color);">
+                            <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2v20m8-10H4"/>
+                                </svg>
+                                Ações Recomendadas
+                            </h3>
+                            <div style="space-y: 0.75rem;">
+                                <button style="width: 100%; background: linear-gradient(135deg, var(--primary-500), var(--primary-600)); color: white; border: none; padding: 0.75rem; border-radius: var(--border-radius-sm); font-weight: 600; cursor: pointer; font-size: 0.875rem;">
+                                    📊 Gerar Relatório Completo
+                                </button>
+                                <button style="width: 100%; background: linear-gradient(135deg, var(--success-500), var(--success-600)); color: white; border: none; padding: 0.75rem; border-radius: var(--border-radius-sm); font-weight: 600; cursor: pointer; font-size: 0.875rem;">
+                                    🔄 Sincronizar Dados
+                                </button>
+                                <button style="width: 100%; background: linear-gradient(135deg, var(--warning-500), var(--warning-600)); color: white; border: none; padding: 0.75rem; border-radius: var(--border-radius-sm); font-weight: 600; cursor: pointer; font-size: 0.875rem;">
+                                    📧 Enviar Alertas
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="analytics-section">
+                <h2>Métricas de Performance</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                    <div style="background: var(--bg-tertiary); border-radius: var(--border-radius); padding: 1.5rem; border: 1px solid var(--border-color);">
+                        <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 1.125rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 3v18h18"/>
+                                <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
+                            </svg>
+                            Tempo Médio de Processamento
+                        </h3>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="font-size: 2.5rem; font-weight: 800; color: var(--primary-400);">2.4h</div>
+                            <div style="color: var(--success-500); font-size: 0.875rem; font-weight: 600;">
+                                ↓ 15% vs. mês anterior
+                            </div>
+                        </div>
+                        <div style="background: var(--bg-primary); height: 8px; border-radius: 4px; overflow: hidden; margin-top: 1rem;">
+                            <div style="background: linear-gradient(90deg, var(--primary-500), var(--primary-600)); height: 100%; width: 76%; border-radius: 4px;"></div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: var(--bg-tertiary); border-radius: var(--border-radius); padding: 1.5rem; border: 1px solid var(--border-color);">
+                        <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 1.125rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                            Taxa de Sucesso
+                        </h3>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="font-size: 2.5rem; font-weight: 800; color: var(--success-500);">94.2%</div>
+                            <div style="color: var(--success-500); font-size: 0.875rem; font-weight: 600;">
+                                ↑ 3% vs. mês anterior
+                            </div>
+                        </div>
+                        <div style="background: var(--bg-primary); height: 8px; border-radius: 4px; overflow: hidden; margin-top: 1rem;">
+                            <div style="background: linear-gradient(90deg, var(--success-500), var(--success-600)); height: 100%; width: 94.2%; border-radius: 4px;"></div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: var(--bg-tertiary); border-radius: var(--border-radius); padding: 1.5rem; border: 1px solid var(--border-color);">
+                        <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 1.125rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                                <circle cx="8.5" cy="7" r="4"/>
+                                <path d="M20 8v6M23 11h-6"/>
+                            </svg>
+                            Volume Processado (Hoje)
+                        </h3>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="font-size: 2.5rem; font-weight: 800; color: var(--warning-500);">127</div>
+                            <div style="color: var(--warning-500); font-size: 0.875rem; font-weight: 600;">
+                                itens processados
+                            </div>
+                        </div>
+                        <div style="background: var(--bg-primary); height: 8px; border-radius: 4px; overflow: hidden; margin-top: 1rem;">
+                            <div style="background: linear-gradient(90deg, var(--warning-500), var(--warning-600)); height: 100%; width: 68%; border-radius: 4px;"></div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
     </div>
-    <script src="script.js?v=1.9"></script>
+
+    <script src="script.js?v=2.0"></script>
 </body>
 </html>
