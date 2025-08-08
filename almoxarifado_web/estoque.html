@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Estoque - Almoxarifado Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="description" content="Sistema avançado de controle e gestão de estoque com monitoramento em tempo real">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span>Almoxarifado Digital</span>
+                </div>
+                <div class="subtitle">Gestão Inteligente de Materiais</div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="menu-section-title">Principal</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="index.html" data-tooltip="Dashboard">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"/>
+                                <rect x="14" y="3" width="7" height="7"/>
+                                <rect x="14" y="14" width="7" height="7"/>
+                                <rect x="3" y="14" width="7" height="7"/>
+                            </svg>
+                            <span>Dashboard Executivo</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="requisicoes.html" data-tooltip="Baixas">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/>
+                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                                <path d="M9 14l2 2 4-4"/>
+                            </svg>
+                            <span>Gestão de Baixas</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="analytics.html" data-tooltip="Analytics">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 3v18h18"/>
+                                <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
+                            </svg>
+                            <span>Analytics Avançado</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="menu-section-title">Operações</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="#" data-tooltip="Sincronizar">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 4v6h-6"/>
+                                <path d="M1 20v-6h6"/>
+                                <path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 013.51 15"/>
+                            </svg>
+                            <span>Sincronização de Dados</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="estoque.html" class="active" data-tooltip="Estoque">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                                <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+                                <line x1="12" y1="22.08" x2="12" y2="12"/>
+                            </svg>
+                            <span>Controle de Estoque</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="relatorios.html" data-tooltip="Relatórios">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10,9 9,9 8,9"/>
+                            </svg>
+                            <span>Relatórios Gerenciais</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="menu-section-title">Administração</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="usuarios.html" data-tooltip="Usuários">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                                <circle cx="8.5" cy="7" r="4"/>
+                                <path d="M20 8v6M23 11h-6"/>
+                            </svg>
+                            <span>Gestão de Usuários</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="configuracoes.html" data-tooltip="Config">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+                            </svg>
+                            <span>Configurações do Sistema</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" data-tooltip="Auditoria">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 12l2 2 4-4"/>
+                                <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
+                                <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
+                                <path d="M13 12h3l4 4-4 4h-3"/>
+                                <path d="M11 12H8l-4-4 4-4h3"/>
+                            </svg>
+                            <span>Auditoria e Logs</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">GR</div>
+                    <div class="user-details">
+                        <div class="user-name">Gabriel Ribeiro</div>
+                        <div class="user-role">Administrador do Sistema</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <button id="toggle-sidebar-btn" class="sidebar-toggle-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12h18m-9-9l9 9-9 9"/>
+                </svg>
+            </button>
+            
+            <header class="main-header">
+                <div>
+                    <h1>Controle Inteligente de Estoque</h1>
+                    <p>Sistema avançado de gestão de materiais com monitoramento em tempo real e alertas automáticos</p>
+                </div>
+            </header>
+
+            <!-- Métricas do Estoque -->
+            <section class="dashboard-cards">
+                <div class="card">
+                    <h3>Total de Itens</h3>
+                    <div class="card-value" id="total-items">0</div>
+                    <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: 0.5rem;">
+                        Materiais cadastrados
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <h3>Valor Total</h3>
+                    <div class="card-value" id="total-value">R$ 0</div>
+                    <p style="color: var(--success-500); font-size: 0.875rem; margin-top: 0.5rem;">
+                        💰 Patrimônio em estoque
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <h3>Alertas de Estoque</h3>
+                    <div class="card-value" id="low-stock-alerts">0</div>
+                    <p style="color: var(--warning-500); font-size: 0.875rem; margin-top: 0.5rem;">
+                        ⚠️ Itens com estoque baixo
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <h3>Itens Zerados</h3>
+                    <div class="card-value" id="zero-stock">0</div>
+                    <p style="color: var(--error-500); font-size: 0.875rem; margin-top: 0.5rem;">
+                        🚨 Necessitam reposição
+                    </p>
+                </div>
+            </section>
+
+            <!-- Formulário de Cadastro/Edição -->
+            <section class="form-container">
+                <h2 style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                        <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+                        <line x1="12" y1="22.08" x2="12" y2="12"/>
+                    </svg>
+                    <span id="form-title">Cadastrar Novo Material</span>
+                </h2>
+                
+                <form id="stock-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="material-code">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 7h16"/>
+                                    <path d="M4 12h16"/>
+                                    <path d="M4 17h16"/>
+                                </svg>
+                                Código do Material
+                            </label>
+                            <input type="text" id="material-code" name="code" required placeholder="Ex: MAT001, EQP123">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="material-description">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                    <polyline points="14,2 14,8 20,8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                </svg>
+                                Descrição do Material
+                            </label>
+                            <input type="text" id="material-description" name="description" required placeholder="Descrição detalhada do material">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="material-category">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/>
+                                </svg>
+                                Categoria
+                            </label>
+                            <select id="material-category" name="category" required>
+                                <option value="">Selecione a categoria</option>
+                                <option value="ferramentas">🔧 Ferramentas</option>
+                                <option value="equipamentos">⚙️ Equipamentos</option>
+                                <option value="materiais_construcao">🏗️ Materiais de Construção</option>
+                                <option value="eletricos">⚡ Materiais Elétricos</option>
+                                <option value="hidraulicos">🚰 Materiais Hidráulicos</option>
+                                <option value="seguranca">🦺 Equipamentos de Segurança</option>
+                                <option value="escritorio">📄 Material de Escritório</option>
+                                <option value="limpeza">🧽 Material de Limpeza</option>
+                                <option value="outros">📦 Outros</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="material-unit">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2v20m8-10H4"/>
+                                </svg>
+                                Unidade de Medida
+                            </label>
+                            <select id="material-unit" name="unit" required>
+                                <option value="">Selecione a unidade</option>
+                                <option value="UN">UN - Unidade</option>
+                                <option value="PC">PC - Peça</option>
+                                <option value="KG">KG - Quilograma</option>
+                                <option value="M">M - Metro</option>
+                                <option value="M2">M² - Metro Quadrado</option>
+                                <option value="M3">M³ - Metro Cúbico</option>
+                                <option value="L">L - Litro</option>
+                                <option value="CX">CX - Caixa</option>
+                                <option value="PCT">PCT - Pacote</option>
+                                <option value="RL">RL - Rolo</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="material-quantity">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                                    <circle cx="8.5" cy="7" r="4"/>
+                                    <path d="M20 8v6M23 11h-6"/>
+                                </svg>
+                                Quantidade em Estoque
+                            </label>
+                            <input type="number" id="material-quantity" name="quantity" required min="0" step="0.01" placeholder="0.00">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="material-min-stock">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                                </svg>
+                                Estoque Mínimo
+                            </label>
+                            <input type="number" id="material-min-stock" name="minStock" required min="0" step="0.01" placeholder="0.00">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="material-max-stock">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M2 12h4l3-9 6 18 3-9h4"/>
+                                </svg>
+                                Estoque Máximo
+                            </label>
+                            <input type="number" id="material-max-stock" name="maxStock" min="0" step="0.01" placeholder="0.00">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="material-price">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"/>
+                                    <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+                                </svg>
+                                Preço Unitário (R$)
+                            </label>
+                            <input type="number" id="material-price" name="price" min="0" step="0.01" placeholder="0.00">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="material-location">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                                Localização no Estoque
+                            </label>
+                            <input type="text" id="material-location" name="location" placeholder="Ex: Prateleira A1, Setor B, Galpão 2">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="material-supplier">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2z"/>
+                                    <path d="M8 21v-4a2 2 0 012-2h4a2 2 0 012 2v4"/>
+                                </svg>
+                                Fornecedor Principal
+                            </label>
+                            <input type="text" id="material-supplier" name="supplier" placeholder="Nome do fornecedor">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="material-status">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3"/>
+                                    <path d="M12 1v6m0 6v6"/>
+                                </svg>
+                                Status do Material
+                            </label>
+                            <select id="material-status" name="status">
+                                <option value="ativo">✅ Ativo</option>
+                                <option value="inativo">❌ Inativo</option>
+                                <option value="descontinuado">⏹️ Descontinuado</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="cancel-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="18" y1="6" x2="6" y2="18"/>
+                                <line x1="6" y1="6" x2="18" y2="18"/>
+                            </svg>
+                            Cancelar
+                        </button>
+                        <button type="submit" class="btn btn-primary" id="save-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/>
+                                <polyline points="17,21 17,13 7,13 7,21"/>
+                                <polyline points="7,3 7,8 15,8"/>
+                            </svg>
+                            Salvar Material
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Filtros de Estoque -->
+            <section class="filters-section">
+                <h2>Filtros de Pesquisa</h2>
+                <p>Utilize os filtros para localizar rapidamente os materiais em estoque</p>
+                
+                <div class="filters-grid">
+                    <div class="filter-item">
+                        <label for="filter-code">Código do Material</label>
+                        <input type="text" id="filter-code" placeholder="Digite o código...">
+                    </div>
+                    
+                    <div class="filter-item">
+                        <label for="filter-description">Descrição</label>
+                        <input type="text" id="filter-description" placeholder="Buscar por descrição...">
+                    </div>
+                    
+                    <div class="filter-item">
+                        <label for="filter-category">Categoria</label>
+                        <select id="filter-category">
+                            <option value="">Todas as categorias</option>
+                            <option value="ferramentas">🔧 Ferramentas</option>
+                            <option value="equipamentos">⚙️ Equipamentos</option>
+                            <option value="materiais_construcao">🏗️ Materiais de Construção</option>
+                            <option value="eletricos">⚡ Materiais Elétricos</option>
+                            <option value="hidraulicos">🚰 Materiais Hidráulicos</option>
+                            <option value="seguranca">🦺 Equipamentos de Segurança</option>
+                            <option value="escritorio">📄 Material de Escritório</option>
+                            <option value="limpeza">🧽 Material de Limpeza</option>
+                            <option value="outros">📦 Outros</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-item">
+                        <label for="filter-stock-status">Status do Estoque</label>
+                        <select id="filter-stock-status">
+                            <option value="">Todos os status</option>
+                            <option value="normal">✅ Normal</option>
+                            <option value="baixo">⚠️ Estoque Baixo</option>
+                            <option value="zerado">🚨 Estoque Zerado</option>
+                            <option value="excesso">📈 Excesso</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="filter-actions">
+                    <button id="search-stock-btn" class="btn btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="M21 21l-4.35-4.35"/>
+                        </svg>
+                        Buscar Materiais
+                    </button>
+                    <button id="clear-stock-filters-btn" class="btn btn-secondary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 6h18"/>
+                            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+                            <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+                        </svg>
+                        Limpar Filtros
+                    </button>
+                </div>
+            </section>
+
+            <!-- Lista de Materiais -->
+            <section class="form-container">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h2 style="display: flex; align-items: center; gap: 0.75rem; margin: 0;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                            <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                        Materiais em Estoque
+                    </h2>
+                    
+                    <div style="display: flex; gap: 1rem;">
+                        <button class="btn btn-secondary" id="export-stock-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                <polyline points="7,10 12,15 17,10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            Exportar
+                        </button>
+                        <button class="btn btn-primary" id="refresh-stock-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 4v6h-6"/>
+                                <path d="M1 20v-6h6"/>
+                                <path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 013.51 15"/>
+                            </svg>
+                            Atualizar
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="table-container">
+                    <table id="stock-table">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Descrição</th>
+                                <th>Categoria</th>
+                                <th>Unidade</th>
+                                <th>Estoque Atual</th>
+                                <th>Estoque Mín.</th>
+                                <th>Valor Unit.</th>
+                                <th>Valor Total</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="stock-table-body">
+                            <tr>
+                                <td colspan="10" style="text-align: center; padding: 3rem; color: var(--text-muted);">
+                                    <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+                                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="opacity: 0.5;">
+                                            <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                                            <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+                                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                                        </svg>
+                                        <div>
+                                            <div style="font-weight: 600; margin-bottom: 0.5rem;">Nenhum material cadastrado</div>
+                                            <div style="font-size: 0.875rem;">Cadastre o primeiro material usando o formulário acima</div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal de Movimentação -->
+    <div id="movement-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Movimentação de Estoque</h3>
+                <button class="modal-close" onclick="closeModal('movement-modal')">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="movement-form">
+                    <div class="form-group">
+                        <label for="movement-type">Tipo de Movimentação</label>
+                        <select id="movement-type" required>
+                            <option value="">Selecione o tipo</option>
+                            <option value="entrada">📥 Entrada</option>
+                            <option value="saida">📤 Saída</option>
+                            <option value="ajuste">⚖️ Ajuste de Inventário</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="movement-quantity">Quantidade</label>
+                        <input type="number" id="movement-quantity" required min="0" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label for="movement-reason">Motivo</label>
+                        <textarea id="movement-reason" rows="3" placeholder="Descreva o motivo da movimentação..."></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-secondary" onclick="closeModal('movement-modal')">Cancelar</button>
+                <button class="btn btn-primary" id="confirm-movement-btn">Confirmar Movimentação</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=2.0"></script>
+    <script>
+        // Dados simulados de estoque
+        let stockData = [
+            {
+                id: 1,
+                code: 'FER001',
+                description: 'Chave de Fenda 3/16"',
+                category: 'ferramentas',
+                unit: 'UN',
+                quantity: 25,
+                minStock: 10,
+                maxStock: 50,
+                price: 12.50,
+                location: 'Prateleira A1',
+                supplier: 'Ferramentas Ltda',
+                status: 'ativo'
+            },
+            {
+                id: 2,
+                code: 'ELE001',
+                description: 'Cabo Flexível 2,5mm² Azul',
+                category: 'eletricos',
+                unit: 'M',
+                quantity: 5,
+                minStock: 50,
+                maxStock: 500,
+                price: 3.20,
+                location: 'Setor B',
+                supplier: 'Elétrica Central',
+                status: 'ativo'
+            },
+            {
+                id: 3,
+                code: 'SEG001',
+                description: 'Capacete de Segurança Branco',
+                category: 'seguranca',
+                unit: 'UN',
+                quantity: 0,
+                minStock: 5,
+                maxStock: 20,
+                price: 45.00,
+                location: 'Almoxarifado EPI',
+                supplier: 'Segurança Total',
+                status: 'ativo'
+            }
+        ];
+
+        let editingStockId = null;
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            loadStock();
+            updateMetrics();
+            setupStockEventListeners();
+        });
+
+        function setupStockEventListeners() {
+            // Formulário
+            document.getElementById('stock-form').addEventListener('submit', handleStockFormSubmit);
+            document.getElementById('cancel-btn').addEventListener('click', resetStockForm);
+            
+            // Filtros
+            document.getElementById('search-stock-btn').addEventListener('click', filterStock);
+            document.getElementById('clear-stock-filters-btn').addEventListener('click', clearStockFilters);
+            
+            // Outros botões
+            document.getElementById('refresh-stock-btn').addEventListener('click', loadStock);
+            document.getElementById('export-stock-btn').addEventListener('click', exportStock);
+            
+            // Filtros em tempo real
+            ['filter-code', 'filter-description', 'filter-category', 'filter-stock-status'].forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.addEventListener('input', debounce(filterStock, 300));
+                }
+            });
+        }
+
+        function handleStockFormSubmit(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const stockItem = {
+                code: formData.get('code'),
+                description: formData.get('description'),
+                category: formData.get('category'),
+                unit: formData.get('unit'),
+                quantity: parseFloat(formData.get('quantity')) || 0,
+                minStock: parseFloat(formData.get('minStock')) || 0,
+                maxStock: parseFloat(formData.get('maxStock')) || 0,
+                price: parseFloat(formData.get('price')) || 0,
+                location: formData.get('location') || '',
+                supplier: formData.get('supplier') || '',
+                status: formData.get('status') || 'ativo'
+            };
+
+            if (editingStockId) {
+                updateStockItem(editingStockId, stockItem);
+            } else {
+                createStockItem(stockItem);
+            }
+        }
+
+        function createStockItem(stockItem) {
+            const newItem = {
+                id: Date.now(),
+                ...stockItem
+            };
+            
+            stockData.push(newItem);
+            loadStock();
+            updateMetrics();
+            resetStockForm();
+            Utils.showNotification('Material cadastrado com sucesso!', 'success');
+        }
+
+        function updateStockItem(id, stockItem) {
+            const index = stockData.findIndex(item => item.id === id);
+            if (index !== -1) {
+                stockData[index] = { ...stockData[index], ...stockItem };
+                loadStock();
+                updateMetrics();
+                resetStockForm();
+                Utils.showNotification('Material atualizado com sucesso!', 'success');
+            }
+        }
+
+        function editStockItem(id) {
+            const item = stockData.find(s => s.id === id);
+            if (!item) return;
+
+            editingStockId = id;
+            
+            document.getElementById('form-title').textContent = 'Editar Material';
+            document.getElementById('save-btn').innerHTML = `
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-5"/>
+                    <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                </svg>
+                Atualizar Material
+            `;
+            
+            // Preencher formulário
+            document.getElementById('material-code').value = item.code;
+            document.getElementById('material-description').value = item.description;
+            document.getElementById('material-category').value = item.category;
+            document.getElementById('material-unit').value = item.unit;
+            document.getElementById('material-quantity').value = item.quantity;
+            document.getElementById('material-min-stock').value = item.minStock;
+            document.getElementById('material-max-stock').value = item.maxStock;
+            document.getElementById('material-price').value = item.price;
+            document.getElementById('material-location').value = item.location;
+            document.getElementById('material-supplier').value = item.supplier;
+            document.getElementById('material-status').value = item.status;
+            
+            // Scroll para o formulário
+            document.querySelector('.form-container').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function deleteStockItem(id) {
+            const item = stockData.find(s => s.id === id);
+            if (!item) return;
+
+            if (confirm(`Tem certeza que deseja excluir o material "${item.description}"?`)) {
+                stockData = stockData.filter(s => s.id !== id);
+                loadStock();
+                updateMetrics();
+                Utils.showNotification('Material excluído com sucesso!', 'success');
+            }
+        }
+
+        function moveStock(id) {
+            const item = stockData.find(s => s.id === id);
+            if (!item) return;
+
+            // Implementar modal de movimentação
+            showModal('movement-modal');
+            
+            document.getElementById('confirm-movement-btn').onclick = () => {
+                const type = document.getElementById('movement-type').value;
+                const quantity = parseFloat(document.getElementById('movement-quantity').value) || 0;
+                const reason = document.getElementById('movement-reason').value;
+                
+                if (!type || quantity <= 0) {
+                    Utils.showNotification('Preencha todos os campos obrigatórios!', 'warning');
+                    return;
+                }
+                
+                // Atualizar estoque
+                if (type === 'entrada') {
+                    item.quantity += quantity;
+                } else if (type === 'saida') {
+                    item.quantity = Math.max(0, item.quantity - quantity);
+                } else if (type === 'ajuste') {
+                    item.quantity = quantity;
+                }
+                
+                loadStock();
+                updateMetrics();
+                closeModal('movement-modal');
+                Utils.showNotification(`Movimentação de ${type} realizada com sucesso!`, 'success');
+                
+                // Limpar formulário
+                document.getElementById('movement-form').reset();
+            };
+        }
+
+        function resetStockForm() {
+            editingStockId = null;
+            document.getElementById('form-title').textContent = 'Cadastrar Novo Material';
+            document.getElementById('save-btn').innerHTML = `
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/>
+                    <polyline points="17,21 17,13 7,13 7,21"/>
+                    <polyline points="7,3 7,8 15,8"/>
+                </svg>
+                Salvar Material
+            `;
+            document.getElementById('stock-form').reset();
+        }
+
+        function loadStock() {
+            const tbody = document.getElementById('stock-table-body');
+            
+            if (stockData.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="10" style="text-align: center; padding: 3rem; color: var(--text-muted);">
+                            <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="opacity: 0.5;">
+                                    <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                                </svg>
+                                <div>
+                                    <div style="font-weight: 600; margin-bottom: 0.5rem;">Nenhum material cadastrado</div>
+                                    <div style="font-size: 0.875rem;">Cadastre o primeiro material usando o formulário acima</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = stockData.map(item => {
+                const stockStatus = getStockStatus(item);
+                const totalValue = item.quantity * item.price;
+                
+                return `
+                    <tr style="animation: fadeIn 0.3s ease-out;">
+                        <td style="font-family: monospace; font-weight: 600; color: var(--primary-400);">${item.code}</td>
+                        <td style="font-weight: 600; color: var(--text-primary);">${item.description}</td>
+                        <td>
+                            <span style="background: var(--primary-100); color: var(--primary-700); padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                                ${getCategoryLabel(item.category)}
+                            </span>
+                        </td>
+                        <td style="text-align: center; font-weight: 600;">${item.unit}</td>
+                        <td style="text-align: center; font-weight: 600; color: ${stockStatus.color};">${Utils.formatNumber(item.quantity)}</td>
+                        <td style="text-align: center; color: var(--text-muted);">${Utils.formatNumber(item.minStock)}</td>
+                        <td style="text-align: right; font-weight: 600;">R$ ${item.price.toFixed(2)}</td>
+                        <td style="text-align: right; font-weight: 600; color: var(--success-500);">R$ ${totalValue.toFixed(2)}</td>
+                        <td>
+                            <span style="background: ${stockStatus.bg}; color: ${stockStatus.text}; padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                                ${stockStatus.label}
+                            </span>
+                        </td>
+                        <td class="table-actions">
+                            <button class="btn-view" onclick="moveStock(${item.id})" title="Movimentar">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 12h18m-9-9l9 9-9 9"/>
+                                </svg>
+                            </button>
+                            <button class="btn-edit" onclick="editStockItem(${item.id})" title="Editar">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-5"/>
+                                    <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                                </svg>
+                            </button>
+                            <button class="btn-delete" onclick="deleteStockItem(${item.id})" title="Excluir">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="3,6 5,6 21,6"/>
+                                    <path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6"/>
+                                </svg>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function filterStock() {
+            const filters = {
+                code: document.getElementById('filter-code')?.value.toLowerCase() || '',
+                description: document.getElementById('filter-description')?.value.toLowerCase() || '',
+                category: document.getElementById('filter-category')?.value || '',
+                stockStatus: document.getElementById('filter-stock-status')?.value || ''
+            };
+            
+            let filteredData = [...stockData];
+            
+            if (filters.code) {
+                filteredData = filteredData.filter(item => 
+                    item.code.toLowerCase().includes(filters.code)
+                );
+            }
+            
+            if (filters.description) {
+                filteredData = filteredData.filter(item => 
+                    item.description.toLowerCase().includes(filters.description)
+                );
+            }
+            
+            if (filters.category) {
+                filteredData = filteredData.filter(item => 
+                    item.category === filters.category
+                );
+            }
+            
+            if (filters.stockStatus) {
+                filteredData = filteredData.filter(item => {
+                    const status = getStockStatus(item);
+                    return status.type === filters.stockStatus;
+                });
+            }
+            
+            // Temporariamente substituir dados para filtro
+            const originalData = [...stockData];
+            stockData = filteredData;
+            loadStock();
+            stockData = originalData;
+        }
+
+        function clearStockFilters() {
+            ['filter-code', 'filter-description', 'filter-category', 'filter-stock-status'].forEach(id => {
+                const element = document.getElementById(id);
+                if (element) element.value = '';
+            });
+            loadStock();
+            Utils.showNotification('Filtros limpos!', 'info');
+        }
+
+        function updateMetrics() {
+            const totalItems = stockData.length;
+            const totalValue = stockData.reduce((sum, item) => sum + (item.quantity * item.price), 0);
+            const lowStockItems = stockData.filter(item => item.quantity <= item.minStock && item.quantity > 0).length;
+            const zeroStockItems = stockData.filter(item => item.quantity === 0).length;
+            
+            // Animar contadores
+            animateCounter(document.getElementById('total-items'), totalItems);
+            animateCounter(document.getElementById('low-stock-alerts'), lowStockItems);
+            animateCounter(document.getElementById('zero-stock'), zeroStockItems);
+            
+            // Valor total com formatação
+            setTimeout(() => {
+                document.getElementById('total-value').textContent = `R$ ${totalValue.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
+            }, 500);
+        }
+
+        function exportStock() {
+            Utils.showNotification('Funcionalidade de exportação será implementada em breve!', 'info');
+        }
+
+        // Funções auxiliares
+        function getCategoryLabel(category) {
+            const categories = {
+                'ferramentas': '🔧 Ferramentas',
+                'equipamentos': '⚙️ Equipamentos',
+                'materiais_construcao': '🏗️ Mat. Construção',
+                'eletricos': '⚡ Elétricos',
+                'hidraulicos': '🚰 Hidráulicos',
+                'seguranca': '🦺 Segurança',
+                'escritorio': '📄 Escritório',
+                'limpeza': '🧽 Limpeza',
+                'outros': '📦 Outros'
+            };
+            return categories[category] || category;
+        }
+
+        function getStockStatus(item) {
+            if (item.quantity === 0) {
+                return {
+                    type: 'zerado',
+                    label: '🚨 Zerado',
+                    color: 'var(--error-500)',
+                    bg: 'var(--error-50)',
+                    text: 'var(--error-700)'
+                };
+            } else if (item.quantity <= item.minStock) {
+                return {
+                    type: 'baixo',
+                    label: '⚠️ Baixo',
+                    color: 'var(--warning-500)',
+                    bg: 'var(--warning-50)',
+                    text: 'var(--warning-700)'
+                };
+            } else if (item.maxStock > 0 && item.quantity >= item.maxStock) {
+                return {
+                    type: 'excesso',
+                    label: '📈 Excesso',
+                    color: 'var(--primary-500)',
+                    bg: 'var(--primary-50)',
+                    text: 'var(--primary-700)'
+                };
+            } else {
+                return {
+                    type: 'normal',
+                    label: '✅ Normal',
+                    color: 'var(--success-500)',
+                    bg: 'var(--success-50)',
+                    text: 'var(--success-700)'
+                };
+            }
+        }
+
+        // Funções de modal
+        function showModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('show');
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('show');
+            }
+        }
+
+        // Animação de contador (reutilizada do script principal)
+        function animateCounter(element, targetValue) {
+            if (!element) return;
+            
+            const duration = 1000;
+            const startValue = 0;
+            const startTime = performance.now();
+            
+            function updateCounter(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                const easeOut = 1 - Math.pow(1 - progress, 3);
+                const currentValue = Math.floor(startValue + (targetValue - startValue) * easeOut);
+                
+                element.textContent = Utils.formatNumber(currentValue);
+                
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                }
+            }
+            
+            requestAnimationFrame(updateCounter);
+        }
+
+        // Debounce function
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+    </script>
+</body>
+</html>

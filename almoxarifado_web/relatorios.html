@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios Gerenciais - Almoxarifado Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="description" content="Relatórios gerenciais avançados com análises detalhadas e insights estratégicos">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span>Almoxarifado Digital</span>
+                </div>
+                <div class="subtitle">Gestão Inteligente de Materiais</div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="menu-section-title">Principal</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="index.html" data-tooltip="Dashboard">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"/>
+                                <rect x="14" y="3" width="7" height="7"/>
+                                <rect x="14" y="14" width="7" height="7"/>
+                                <rect x="3" y="14" width="7" height="7"/>
+                            </svg>
+                            <span>Dashboard Executivo</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="requisicoes.html" data-tooltip="Baixas">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/>
+                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                                <path d="M9 14l2 2 4-4"/>
+                            </svg>
+                            <span>Gestão de Baixas</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="analytics.html" data-tooltip="Analytics">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 3v18h18"/>
+                                <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
+                            </svg>
+                            <span>Analytics Avançado</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="menu-section-title">Operações</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="#" data-tooltip="Sincronizar">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 4v6h-6"/>
+                                <path d="M1 20v-6h6"/>
+                                <path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 013.51 15"/>
+                            </svg>
+                            <span>Sincronização de Dados</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="estoque.html" data-tooltip="Estoque">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                                <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+                                <line x1="12" y1="22.08" x2="12" y2="12"/>
+                            </svg>
+                            <span>Controle de Estoque</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="relatorios.html" class="active" data-tooltip="Relatórios">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10,9 9,9 8,9"/>
+                            </svg>
+                            <span>Relatórios Gerenciais</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="menu-section-title">Administração</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="usuarios.html" data-tooltip="Usuários">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                                <circle cx="8.5" cy="7" r="4"/>
+                                <path d="M20 8v6M23 11h-6"/>
+                            </svg>
+                            <span>Gestão de Usuários</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="configuracoes.html" data-tooltip="Config">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+                            </svg>
+                            <span>Configurações do Sistema</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" data-tooltip="Auditoria">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 12l2 2 4-4"/>
+                                <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
+                                <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
+                                <path d="M13 12h3l4 4-4 4h-3"/>
+                                <path d="M11 12H8l-4-4 4-4h3"/>
+                            </svg>
+                            <span>Auditoria e Logs</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">GR</div>
+                    <div class="user-details">
+                        <div class="user-name">Gabriel Ribeiro</div>
+                        <div class="user-role">Administrador do Sistema</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <button id="toggle-sidebar-btn" class="sidebar-toggle-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12h18m-9-9l9 9-9 9"/>
+                </svg>
+            </button>
+            
+            <header class="main-header">
+                <div>
+                    <h1>Relatórios Gerenciais Avançados</h1>
+                    <p>Central de relatórios com análises detalhadas, insights estratégicos e exportação de dados para tomada de decisões</p>
+                </div>
+            </header>
+
+            <!-- Filtros de Relatório -->
+            <section class="filters-section">
+                <h2>Configuração de Relatórios</h2>
+                <p>Configure os parâmetros para gerar relatórios personalizados conforme suas necessidades</p>
+                
+                <div class="filters-grid">
+                    <div class="filter-item">
+                        <label for="report-type">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                            </svg>
+                            Tipo de Relatório
+                        </label>
+                        <select id="report-type">
+                            <option value="estoque">📦 Relatório de Estoque</option>
+                            <option value="movimentacao">🔄 Movimentação de Materiais</option>
+                            <option value="requisicoes">📋 Análise de Requisições</option>
+                            <option value="financeiro">💰 Relatório Financeiro</option>
+                            <option value="performance">📊 Performance Operacional</option>
+                            <option value="auditoria">🔍 Auditoria e Conformidade</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-item">
+                        <label for="date-start">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            Data Inicial
+                        </label>
+                        <input type="date" id="date-start" value="2025-01-01">
+                    </div>
+                    
+                    <div class="filter-item">
+                        <label for="date-end">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            Data Final
+                        </label>
+                        <input type="date" id="date-end" value="2025-01-31">
+                    </div>
+                    
+                    <div class="filter-item">
+                        <label for="report-format">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                <polyline points="7,10 12,15 17,10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            Formato de Exportação
+                        </label>
+                        <select id="report-format">
+                            <option value="pdf">📄 PDF</option>
+                            <option value="excel">📊 Excel (.xlsx)</option>
+                            <option value="csv">📋 CSV</option>
+                            <option value="json">🔧 JSON</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-item">
+                        <label for="report-category">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/>
+                            </svg>
+                            Categoria (Opcional)
+                        </label>
+                        <select id="report-category">
+                            <option value="">Todas as categorias</option>
+                            <option value="ferramentas">🔧 Ferramentas</option>
+                            <option value="equipamentos">⚙️ Equipamentos</option>
+                            <option value="materiais_construcao">🏗️ Materiais de Construção</option>
+                            <option value="eletricos">⚡ Materiais Elétricos</option>
+                            <option value="hidraulicos">🚰 Materiais Hidráulicos</option>
+                            <option value="seguranca">🦺 Equipamentos de Segurança</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-item">
+                        <label for="report-project">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2z"/>
+                                <path d="M8 21v-4a2 2 0 012-2h4a2 2 0 012 2v4"/>
+                            </svg>
+                            Projeto (Opcional)
+                        </label>
+                        <input type="text" id="report-project" placeholder="Número do projeto ou ocorrência">
+                    </div>
+                </div>
+                
+                <div class="filter-actions">
+                    <button id="generate-report-btn" class="btn btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>
+                        Gerar Relatório
+                    </button>
+                    <button id="schedule-report-btn" class="btn btn-secondary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12,6 12,12 16,14"/>
+                        </svg>
+                        Agendar Relatório
+                    </button>
+                </div>
+            </section>
+
+            <!-- Relatórios Pré-definidos -->
+            <section class="form-container">
+                <h2 style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    Relatórios Pré-definidos
+                </h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.5rem;">
+                    <!-- Relatório de Estoque -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: var(--border-radius); border: 1px solid var(--border-color);">
+                        <h3 style="color: var(--text-primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                            </svg>
+                            Relatório de Estoque Atual
+                        </h3>
+                        <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 0.875rem;">
+                            Visão completa do estoque atual com alertas de reposição e análise de valor.
+                        </p>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <button class="btn btn-primary" onclick="generatePredefinedReport('estoque')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                    <polyline points="7,10 12,15 17,10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                                Gerar PDF
+                            </button>
+                            <button class="btn btn-secondary" onclick="generatePredefinedReport('estoque', 'excel')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                    <polyline points="14,2 14,8 20,8"/>
+                                </svg>
+                                Excel
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Relatório de Movimentação -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: var(--border-radius); border: 1px solid var(--border-color);">
+                        <h3 style="color: var(--text-primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 12h18m-9-9l9 9-9 9"/>
+                            </svg>
+                            Movimentação Mensal
+                        </h3>
+                        <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 0.875rem;">
+                            Análise detalhada de entradas, saídas e transferências do último mês.
+                        </p>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <button class="btn btn-primary" onclick="generatePredefinedReport('movimentacao')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                    <polyline points="7,10 12,15 17,10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                                Gerar PDF
+                            </button>
+                            <button class="btn btn-secondary" onclick="generatePredefinedReport('movimentacao', 'excel')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                    <polyline points="14,2 14,8 20,8"/>
+                                </svg>
+                                Excel
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Relatório Financeiro -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: var(--border-radius); border: 1px solid var(--border-color);">
+                        <h3 style="color: var(--text-primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+                            </svg>
+                            Análise Financeira
+                        </h3>
+                        <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 0.875rem;">
+                            Relatório de custos, valores em estoque e análise de investimentos.
+                        </p>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <button class="btn btn-primary" onclick="generatePredefinedReport('financeiro')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                    <polyline points="7,10 12,15 17,10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                                Gerar PDF
+                            </button>
+                            <button class="btn btn-secondary" onclick="generatePre definedReport('financeiro', 'excel')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                    <polyline points="14,2 14,8 20,8"/>
+                                </svg>
+                                Excel
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Relatório de Performance -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: var(--border-radius); border: 1px solid var(--border-color);">
+                        <h3 style="color: var(--text-primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 3v18h18"/>
+                                <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
+                            </svg>
+                            Performance Operacional
+                        </h3>
+                        <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 0.875rem;">
+                            KPIs, métricas de eficiência e análise de performance do almoxarifado.
+                        </p>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <button class="btn btn-primary" onclick="generatePredefinedReport('performance')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                    <polyline points="7,10 12,15 17,10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                                Gerar PDF
+                            </button>
+                            <button class="btn btn-secondary" onclick="generatePredefinedReport('performance', 'excel')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                    <polyline points="14,2 14,8 20,8"/>
+                                </svg>
+                                Excel
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Relatório de Auditoria -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: var(--border-radius); border: 1px solid var(--border-color);">
+                        <h3 style="color: var(--text-primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 12l2 2 4-4"/>
+                                <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
+                            </svg>
+                            Auditoria e Conformidade
+                        </h3>
+                        <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 0.875rem;">
+                            Relatório de auditoria com logs de atividades e conformidade regulatória.
+                        </p>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <button class="btn btn-primary" onclick="generatePredefinedReport('auditoria')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                    <polyline points="7,10 12,15 17,10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                                Gerar PDF
+                            </button>
+                            <button class="btn btn-secondary" onclick="generatePredefinedReport('auditoria', 'excel')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                    <polyline points="14,2 14,8 20,8"/>
+                                </svg>
+                                Excel
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Relatório de Requisições -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: var(--border-radius); border: 1px solid var(--border-color);">
+                        <h3 style="color: var(--text-primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/>
+                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                            </svg>
+                            Análise de Requisições
+                        </h3>
+                        <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 0.875rem;">
+                            Relatório detalhado de requisições processadas, pendentes e estatísticas.
+                        </p>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <button class="btn btn-primary" onclick="generatePredefinedReport('requisicoes')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                    <polyline points="7,10 12,15 17,10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                                Gerar PDF
+                            </button>
+                            <button class="btn btn-secondary" onclick="generatePredefinedReport('requisicoes', 'excel')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                    <polyline points="14,2 14,8 20,8"/>
+                                </svg>
+                                Excel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Histórico de Relatórios -->
+            <section class="form-container">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h2 style="display: flex; align-items: center; gap: 0.75rem; margin: 0;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12,6 12,12 16,14"/>
+                        </svg>
+                        Histórico de Relatórios
+                    </h2>
+                    
+                    <button class="btn btn-secondary" id="clear-history-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 6h18"/>
+                            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+                            <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+                        </svg>
+                        Limpar Histórico
+                    </button>
+                </div>
+                
+                <div class="table-container">
+                    <table id="reports-history-table">
+                        <thead>
+                            <tr>
+                                <th>Data/Hora</th>
+                                <th>Tipo de Relatório</th>
+                                <th>Período</th>
+                                <th>Formato</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reports-history-body">
+                            <tr>
+                                <td>15/01/2025 14:30</td>
+                                <td>📦 Relatório de Estoque</td>
+                                <td>01/01/2025 - 15/01/2025</td>
+                                <td>
+                                    <span style="background: var(--error-50); color: var(--error-700); padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                                        PDF
+                                    </span>
+                                </td>
+                                <td>
+                                    <span style="background: var(--success-50); color: var(--success-700); padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                                        ✅ Concluído
+                                    </span>
+                                </td>
+                                <td class="table-actions">
+                                    <button class="btn-view" title="Baixar">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                            <polyline points="7,10 12,15 17,10"/>
+                                            <line x1="12" y1="15" x2="12" y2="3"/>
+                                        </svg>
+                                    </button>
+                                    <button class="btn-delete" title="Excluir">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="3,6 5,6 21,6"/>
+                                            <path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6"/>
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>14/01/2025 09:15</td>
+                                <td>💰 Relatório Financeiro</td>
+                                <td>01/12/2024 - 31/12/2024</td>
+                                <td>
+                                    <span style="background: var(--success-50); color: var(--success-700); padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                                        Excel
+                                    </span>
+                                </td>
+                                <td>
+                                    <span style="background: var(--success-50); color: var(--success-700); padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                                        ✅ Concluído
+                                    </span>
+                                </td>
+                                <td class="table-actions">
+                                    <button class="btn-view" title="Baixar">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                            <polyline points="7,10 12,15 17,10"/>
+                                            <line x1="12" y1="15" x2="12" y2="3"/>
+                                        </svg>
+                                    </button>
+                                    <button class="btn-delete" title="Excluir">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="3,6 5,6 21,6"/>
+                                            <path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6"/>
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>13/01/2025 16:45</td>
+                                <td>🔄 Movimentação de Materiais</td>
+                                <td>01/01/2025 - 13/01/2025</td>
+                                <td>
+                                    <span style="background: var(--primary-50); color: var(--primary-700); padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                                        CSV
+                                    </span>
+                                </td>
+                                <td>
+                                    <span style="background: var(--warning-50); color: var(--warning-700); padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                                        ⏳ Processando
+                                    </span>
+                                </td>
+                                <td class="table-actions">
+                                    <button class="btn-view" title="Aguardar" disabled>
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <polyline points="12,6 12,12 16,14"/>
+                                        </svg>
+                                    </button>
+                                    <button class="btn-delete" title="Cancelar">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="18" y1="6" x2="6" y2="18"/>
+                                            <line x1="6" y1="6" x2="18" y2="18"/>
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js?v=2.0"></script>
+    <script>
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            setupReportsEventListeners();
+            loadReportsHistory();
+        });
+
+        function setupReportsEventListeners() {
+            // Botões principais
+            document.getElementById('generate-report-btn').addEventListener('click', generateCustomReport);
+            document.getElementById('schedule-report-btn').addEventListener('click', scheduleReport);
+            document.getElementById('clear-history-btn').addEventListener('click', clearReportsHistory);
+        }
+
+        function generateCustomReport() {
+            const reportType = document.getElementById('report-type').value;
+            const dateStart = document.getElementById('date-start').value;
+            const dateEnd = document.getElementById('date-end').value;
+            const format = document.getElementById('report-format').value;
+            const category = document.getElementById('report-category').value;
+            const project = document.getElementById('report-project').value;
+
+            if (!dateStart || !dateEnd) {
+                Utils.showNotification('Por favor, selecione o período do relatório.', 'warning');
+                return;
+            }
+
+            const btn = document.getElementById('generate-report-btn');
+            Utils.setLoadingState(btn, true);
+
+            // Simular geração de relatório
+            setTimeout(() => {
+                Utils.setLoadingState(btn, false);
+                
+                const reportName = getReportTypeName(reportType);
+                const formatName = getFormatName(format);
+                
+                Utils.showNotification(
+                    `Relatório "${reportName}" em formato ${formatName} gerado com sucesso!`,
+                    'success'
+                );
+                
+                // Adicionar ao histórico
+                addToReportsHistory({
+                    type: reportName,
+                    period: `${formatDate(dateStart)} - ${formatDate(dateEnd)}`,
+                    format: formatName,
+                    status: 'Concluído'
+                });
+                
+                // Simular download
+                setTimeout(() => {
+                    const filename = `${reportType}_${dateStart}_${dateEnd}.${format}`;
+                    Utils.showNotification(`Download iniciado: ${filename}`, 'info');
+                }, 1000);
+                
+            }, 3000);
+        }
+
+        function generatePredefinedReport(type, format = 'pdf') {
+            const reportName = getReportTypeName(type);
+            const formatName = getFormatName(format);
+            
+            Utils.showNotification(`Gerando ${reportName} em formato ${formatName}...`, 'info');
+            
+            // Simular geração
+            setTimeout(() => {
+                Utils.showNotification(
+                    `Relatório "${reportName}" gerado com sucesso!`,
+                    'success'
+                );
+                
+                // Adicionar ao histórico
+                const today = new Date();
+                const lastMonth = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+                
+                addToReportsHistory({
+                    type: reportName,
+                    period: `${formatDate(lastMonth.toISOString().split('T')[0])} - ${formatDate(today.toISOString().split('T')[0])}`,
+                    format: formatName,
+                    status: 'Concluído'
+                });
+                
+                // Simular download
+                setTimeout(() => {
+                    const filename = `${type}_${today.toISOString().split('T')[0]}.${format}`;
+                    Utils.showNotification(`Download iniciado: ${filename}`, 'info');
+                }, 500);
+                
+            }, 2000);
+        }
+
+        function scheduleReport() {
+            Utils.showNotification('Funcionalidade de agendamento será implementada em breve!', 'info');
+        }
+
+        function addToReportsHistory(report) {
+            const tbody = document.getElementById('reports-history-body');
+            const now = new Date();
+            const dateTime = now.toLocaleString('pt-BR');
+            
+            const row = tbody.insertRow(0); // Inserir no topo
+            row.innerHTML = `
+                <td>${dateTime}</td>
+                <td>${getReportIcon(report.type)} ${report.type}</td>
+                <td>${report.period}</td>
+                <td>
+                    <span style="background: ${getFormatColor(report.format)}; padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                        ${report.format}
+                    </span>
+                </td>
+                <td>
+                    <span style="background: var(--success-50); color: var(--success-700); padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                        ✅ ${report.status}
+                    </span>
+                </td>
+                <td class="table-actions">
+                    <button class="btn-view" title="Baixar" onclick="downloadReport('${report.type}')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                            <polyline points="7,10 12,15 17,10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                    </button>
+                    <button class="btn-delete" title="Excluir" onclick="deleteReport(this)">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="3,6 5,6 21,6"/>
+                            <path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6"/>
+                        </svg>
+                    </button>
+                </td>
+            `;
+            
+            // Animar entrada
+            row.style.animation = 'fadeIn 0.3s ease-out';
+        }
+
+        function downloadReport(reportName) {
+            Utils.showNotification(`Baixando relatório: ${reportName}`, 'info');
+        }
+
+        function deleteReport(button) {
+            if (confirm('Deseja excluir este relatório do histórico?')) {
+                const row = button.closest('tr');
+                row.style.animation = 'fadeOut 0.3s ease-out';
+                setTimeout(() => row.remove(), 300);
+                Utils.showNotification('Relatório removido do histórico.', 'success');
+            }
+        }
+
+        function clearReportsHistory() {
+            if (confirm('Deseja limpar todo o histórico de relatórios? Esta ação não pode ser desfeita.')) {
+                const tbody = document.getElementById('reports-history-body');
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="6" style="text-align: center; padding: 3rem; color: var(--text-muted);">
+                            <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="opacity: 0.5;">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12,6 12,12 16,14"/>
+                                </svg>
+                                <div>
+                                    <div style="font-weight: 600; margin-bottom: 0.5rem;">Histórico limpo</div>
+                                    <div style="font-size: 0.875rem;">Novos relatórios aparecerão aqui</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                Utils.showNotification('Histórico de relatórios limpo com sucesso!', 'success');
+            }
+        }
+
+        function loadReportsHistory() {
+            // Histórico já está carregado no HTML
+            // Esta função pode ser expandida para carregar dados reais
+        }
+
+        // Funções auxiliares
+        function getReportTypeName(type) {
+            const types = {
+                'estoque': 'Relatório de Estoque',
+                'movimentacao': 'Movimentação de Materiais',
+                'requisicoes': 'Análise de Requisições',
+                'financeiro': 'Relatório Financeiro',
+                'performance': 'Performance Operacional',
+                'auditoria': 'Auditoria e Conformidade'
+            };
+            return types[type] || type;
+        }
+
+        function getReportIcon(type) {
+            if (type.includes('Estoque')) return '📦';
+            if (type.includes('Movimentação')) return '🔄';
+            if (type.includes('Requisições')) return '📋';
+            if (type.includes('Financeiro')) return '💰';
+            if (type.includes('Performance')) return '📊';
+            if (type.includes('Auditoria')) return '🔍';
+            return '📄';
+        }
+
+        function getFormatName(format) {
+            const formats = {
+                'pdf': 'PDF',
+                'excel': 'Excel',
+                'csv': 'CSV',
+                'json': 'JSON'
+            };
+            return formats[format] || format;
+        }
+
+        function getFormatColor(format) {
+            const colors = {
+                'PDF': 'var(--error-50); color: var(--error-700)',
+                'Excel': 'var(--success-50); color: var(--success-700)',
+                'CSV': 'var(--primary-50); color: var(--primary-700)',
+                'JSON': 'var(--warning-50); color: var(--warning-700)'
+            };
+            return colors[format] || 'var(--neutral-100); color: var(--neutral-700)';
+        }
+
+        function formatDate(dateString) {
+            return new Date(dateString).toLocaleDateString('pt-BR');
+        }
+    </script>
+
+    <style>
+        @keyframes fadeOut {
+            from { opacity: 1; transform: translateX(0); }
+            to { opacity: 0; transform: translateX(100%); }
+        }
+    </style>
+</body>
+</html>

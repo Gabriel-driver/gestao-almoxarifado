@@ -17,7 +17,13 @@ const AppState = {
     allRequisicoesData: [],
     isLoading: false,
     currentPage: '',
-    sidebarCollapsed: false
+    sidebarCollapsed: false,
+    pagination: {
+        currentPage: 1,
+        itemsPerPage: 50,
+        totalItems: 0,
+        totalPages: 0
+    }
 };
 
 // Utilitários
@@ -325,6 +331,9 @@ function initRequisicoes() {
         }
     });
     
+    // Configurar paginação
+    configurarPaginacao();
+    
     // Carregar dados iniciais
     sincronizarDadosSupabase();
 }
@@ -474,10 +483,69 @@ function aplicarFiltros() {
         );
     }
     
-    exibirRequisicoes(dadosFiltrados);
+    // Atualizar paginação com dados filtrados
+    AppState.pagination.totalItems = dadosFiltrados.length;
+    AppState.pagination.totalPages = Math.ceil(dadosFiltrados.length / AppState.pagination.itemsPerPage);
+    AppState.pagination.currentPage = 1; // Reset para primeira página
+    
+    exibirRequisicoesPaginadas(dadosFiltrados);
+    atualizarPaginacao();
 }
 
-// Exibir requisições na tabela
+// Exibir requisições com paginação
+function exibirRequisicoesPaginadas(todasRequisicoes) {
+    const startIndex = (AppState.pagination.currentPage - 1) * AppState.pagination.itemsPerPage;
+    const endIndex = startIndex + AppState.pagination.itemsPerPage;
+    const requisicoesParaExibir = todasRequisicoes.slice(startIndex, endIndex);
+    
+    exibirRequisicoes(requisicoesParaExibir);
+    
+    // Mostrar/esconder paginação
+    const paginationContainer = document.getElementById('pagination-container');
+    if (paginationContainer) {
+        paginationContainer.style.display = AppState.pagination.totalPages > 1 ? 'flex' : 'none';
+    }
+}
+
+// Atualizar controles de paginação
+function atualizarPaginacao() {
+    const prevBtn = document.getElementById('prev-page');
+    const nextBtn = document.getElementById('next-page');
+    const pageInfo = document.getElementById('page-info');
+    
+    if (prevBtn) prevBtn.disabled = AppState.pagination.currentPage <= 1;
+    if (nextBtn) nextBtn.disabled = AppState.pagination.currentPage >= AppState.pagination.totalPages;
+    
+    if (pageInfo) {
+        pageInfo.textContent = `Página ${AppState.pagination.currentPage} de ${AppState.pagination.totalPages} (${AppState.pagination.totalItems} itens)`;
+    }
+}
+
+// Configurar eventos de paginação
+function configurarPaginacao() {
+    const prevBtn = document.getElementById('prev-page');
+    const nextBtn = document.getElementById('next-page');
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            if (AppState.pagination.currentPage > 1) {
+                AppState.pagination.currentPage--;
+                aplicarFiltros();
+            }
+        });
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            if (AppState.pagination.currentPage < AppState.pagination.totalPages) {
+                AppState.pagination.currentPage++;
+                aplicarFiltros();
+            }
+        });
+    }
+}
+
+// Exibir requisições na tabela (função original mantida)
 function exibirRequisicoes(requisicoes) {
     const tableBody = document.querySelector('#requisicoes-table tbody');
     if (!tableBody) return;
