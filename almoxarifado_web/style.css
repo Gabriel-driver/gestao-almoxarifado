@@ -100,6 +100,7 @@ body {
 .sidebar {
     width: var(--sidebar-width);
     background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     border-right: 1px solid var(--border-color);
     position: fixed;
@@ -407,6 +408,7 @@ body {
     cursor: pointer;
     transition: all var(--transition-fast);
     box-shadow: var(--shadow-lg);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
 
@@ -445,6 +447,7 @@ body {
     padding: 2rem;
     margin-bottom: 2rem;
     box-shadow: var(--shadow-xl);
+    -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     position: relative;
     overflow: hidden;
@@ -584,8 +587,8 @@ body {
 .filter-item select {
     width: 100%;
     padding: 0.875rem 1rem;
-    background: var(--bg-tertiary);
-    border: 1px solid var(--border-color);
+    background: var(--bg-hover);
+    border: 1px solid var(--border-light);
     border-radius: var(--border-radius);
     color: var(--text-primary);
     font-size: 0.925rem;
@@ -873,7 +876,6 @@ table td span {
 .form-group label {
     font-weight: 600;
     color: var(--text-primary);
-    background: transparent;
     font-size: 0.925rem;
     display: flex;
     align-items: center;
@@ -1043,6 +1045,7 @@ table td span {
 .modal.show {
     opacity: 1;
     visibility: visible;
+    -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
 }
 
@@ -1066,7 +1069,6 @@ table td span {
 
 .modal-header {
     display: flex;
-    background: transparent;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.5rem;
@@ -1077,7 +1079,6 @@ table td span {
 .modal-title {
     font-size: 1.25rem;
     font-weight: 700;
-    background: transparent;
     color: var(--text-primary);
 }
 
@@ -1085,7 +1086,6 @@ table td span {
     background: none;
     border: none;
     color: var(--text-muted);
-    background: transparent;
     cursor: pointer;
     font-size: 1.5rem;
     padding: 0.5rem;
@@ -1111,7 +1111,6 @@ table td span {
 .analytics-section h2 {
     font-size: 1.5rem;
     font-weight: 700;
-    background: transparent;
     color: var(--text-primary);
     margin-bottom: 1.5rem;
     display: flex;
@@ -1122,7 +1121,6 @@ table td span {
 .analytics-section h2::before {
     content: '📊';
     font-size: 1.25rem;
-    background: transparent;
 }
 
 /* Responsividade */
@@ -1160,11 +1158,11 @@ table td span {
     }
     
     .main-header h1 {
-        background: transparent;
-    }
-    
-    .main-header h1 {
         font-size: 1.75rem;
+        background: none;
+        -webkit-background-clip: initial;
+        -webkit-text-fill-color: initial;
+        background-clip: initial;
     }
     
     .dashboard-cards {
@@ -1228,7 +1226,6 @@ table td span {
 @keyframes fadeIn {
     from {
         opacity: 0;
-        background: transparent;
         transform: translateY(20px);
     }
     to {
@@ -1240,7 +1237,6 @@ table td span {
 @keyframes slideIn {
     from {
         opacity: 0;
-        background: transparent;
         transform: translateX(-20px);
     }
     to {
@@ -1259,7 +1255,6 @@ table td span {
 
 .menu-item {
     animation: slideIn 0.4s ease-out;
-    background: transparent;
     animation-fill-mode: both;
 }
 
@@ -1272,7 +1267,6 @@ table td span {
 /* Estados de loading */
 .loading {
     position: relative;
-    background: transparent;
     overflow: hidden;
 }
 
@@ -1299,7 +1293,6 @@ table td span {
 /* Scrollbar personalizada */
 ::-webkit-scrollbar {
     width: 8px;
-    background: transparent;
     height: 8px;
 }
 
@@ -1315,15 +1308,4 @@ table td span {
 
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
-}
-
-/* Correções específicas para remover backgrounds brancos */
-span, label, h1, h2, h3, h4, h5, h6, p, div {
-    background: transparent !important;
-}
-
-/* Exceções para elementos que precisam de background */
-.card, .form-container, .filters-section, .analytics-section, .sidebar, .main-content, 
-.modal-content, .btn, input, select, textarea, table {
-    background: revert !important;
 }

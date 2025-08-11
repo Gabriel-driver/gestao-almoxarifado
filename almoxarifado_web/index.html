@@ -3,267 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Almoxarifado Digital - Dashboard Executivo</title>
+    <title>Login - Gestão Almoxarifado</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <meta name="description" content="Sistema avançado de gestão de almoxarifado com controle inteligente de requisições e análise em tempo real">
-</head>
-<body>
-    <div class="app-container">
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <div class="logo">
-                    <span>Almoxarifado Digital</span>
-                </div>
-                <div class="subtitle">Gestão Inteligente de Materiais</div>
-            </div>
-            
-            <nav class="sidebar-nav">
-                <div class="menu-section-title">Principal</div>
-                <ul class="menu-list">
-                    <li class="menu-item">
-                        <a href="index.html" class="active" data-tooltip="Dashboard">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="3" width="7" height="7"/>
-                                <rect x="14" y="3" width="7" height="7"/>
-                                <rect x="14" y="14" width="7" height="7"/>
-                                <rect x="3" y="14" width="7" height="7"/>
-                            </svg>
-                            <span>Dashboard Executivo</span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="requisicoes.html" data-tooltip="Baixas">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/>
-                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
-                                <path d="M9 14l2 2 4-4"/>
-                            </svg>
-                            <span>Gestão de Baixas</span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="analytics.html" data-tooltip="Analytics">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M3 3v18h18"/>
-                                <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
-                            </svg>
-                            <span>Analytics Avançado</span>
-                        </a>
-                    </li>
-                </ul>
-                
-                <div class="menu-section-title">Operações</div>
-                <ul class="menu-list">
-                    <li class="menu-item">
-                        <a href="sincronizacao.html" data-tooltip="Sincronizar">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M23 4v6h-6"/>
-                                <path d="M1 20v-6h6"/>
-                                <path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 013.51 15"/>
-                            </svg>
-                            <span>Sincronização de Dados</span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="estoque.html" data-tooltip="Estoque">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
-                                <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
-                                <line x1="12" y1="22.08" x2="12" y2="12"/>
-                            </svg>
-                            <span>Controle de Estoque</span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="relatorios.html" data-tooltip="Relatórios">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
-                                <polyline points="14,2 14,8 20,8"/>
-                                <line x1="16" y1="13" x2="8" y2="13"/>
-                                <line x1="16" y1="17" x2="8" y2="17"/>
-                                <polyline points="10,9 9,9 8,9"/>
-                            </svg>
-                            <span>Relatórios Gerenciais</span>
-                        </a>
-                    </li>
-                </ul>
-                
-                <div class="menu-section-title">Administração</div>
-                <ul class="menu-list">
-                    <li class="menu-item">
-                        <a href="usuarios.html" data-tooltip="Usuários">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-                                <circle cx="8.5" cy="7" r="4"/>
-                                <path d="M20 8v6M23 11h-6"/>
-                            </svg>
-                            <span>Gestão de Usuários</span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="configuracoes.html" data-tooltip="Config">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="3"/>
-                                <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
-                            </svg>
-                            <span>Configurações do Sistema</span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="auditoria.html" data-tooltip="Auditoria">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M9 12l2 2 4-4"/>
-                                <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
-                                <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
-                                <path d="M13 12h3l4 4-4 4h-3"/>
-                                <path d="M11 12H8l-4-4 4-4h3"/>
-                            </svg>
-                            <span>Auditoria e Logs</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            
-            <div class="sidebar-footer">
-                <div class="user-info">
-                    <div class="user-avatar">GR</div>
-                    <div class="user-details">
-                        <div class="user-name">Gabriel Ribeiro</div>
-                        <div class="user-role">Administrador do Sistema</div>
-                    </div>
-                </div>
-            </div>
-        </aside>
-
-        <main class="main-content">
-            <button id="toggle-sidebar-btn" class="sidebar-toggle-btn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M3 12h18m-9-9l9 9-9 9"/>
-                </svg>
-            </button>
-            
-            <header class="main-header">
-                <div>
-                    <h1>Dashboard Executivo</h1>
-                    <p>Visão estratégica completa do almoxarifado com métricas em tempo real e insights operacionais</p>
-                </div>
-            </header>
-
-            <section class="dashboard-cards">
-                <div class="card">
-                    <h3>Requisições Pendentes</h3>
-                    <div class="card-value" id="pendentes-count">0</div>
-                    <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: 0.5rem;">
-                        Aguardando processamento
-                    </p>
-                </div>
-                
-                <div class="card">
-                    <h3>Itens Processados</h3>
-                    <div class="card-value" id="baixados-count">0</div>
-                    <p style="color: var(--success-500); font-size: 0.875rem; margin-top: 0.5rem;">
-                        ✓ Concluídos com sucesso
-                    </p>
-                </div>
-                
-                <div class="card">
-                    <h3>Processamento Parcial</h3>
-                    <div class="card-value" id="parciais-count">0</div>
-                    <p style="color: var(--warning-500); font-size: 0.875rem; margin-top: 0.5rem;">
-                        ⚠ Requer atenção
-                    </p>
-                </div>
-                
-                <div class="card">
-                    <h3>Alertas Críticos</h3>
-                    <div class="card-value" id="erros-count">0</div>
-                    <p style="color: var(--error-500); font-size: 0.875rem; margin-top: 0.5rem;">
-                        🚨 Intervenção necessária
-                    </p>
-                </div>
-            </section>
-
-            <section class="analytics-section">
-                <h2>Insights Operacionais</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                    <div>
-                        <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 1.125rem;">
-                            Performance do Sistema
-                        </h3>
-                        <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: var(--border-radius); border: 1px solid var(--border-color);">
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                                <span style="color: var(--text-secondary);">Taxa de Processamento</span>
-                                <span style="color: var(--success-500); font-weight: 600;">94.2%</span>
-                            </div>
-                            <div style="background: var(--bg-primary); height: 8px; border-radius: 4px; overflow: hidden;">
-                                <div style="background: linear-gradient(90deg, var(--success-500), var(--success-600)); height: 100%; width: 94.2%; border-radius: 4px;"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 1.125rem;">
-                            Status da Sincronização
-                        </h3>
-                        <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: var(--border-radius); border: 1px solid var(--border-color);">
-                            <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                <div style="width: 12px; height: 12px; background: var(--success-500); border-radius: 50%; animation: pulse 2s infinite;"></div>
-                                <span style="color: var(--text-primary); font-weight: 600;">Sistema Online</span>
-                            </div>
-                            <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: 0.5rem;">
-                                Última sincronização: há 2 minutos
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="analytics-section">
-                <h2>Ações Rápidas</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
-                    <button onclick="window.location.href='requisicoes.html'" style="background: linear-gradient(135deg, var(--primary-500), var(--primary-600)); color: white; border: none; padding: 1.5rem; border-radius: var(--border-radius); font-weight: 600; cursor: pointer; transition: all var(--transition-fast); box-shadow: var(--shadow-md);">
-                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📋</div>
-                        <div>Gerenciar Requisições</div>
-                        <div style="font-size: 0.875rem; opacity: 0.9; margin-top: 0.25rem;">Processar baixas pendentes</div>
-                    </button>
-                    
-                    <button onclick="window.location.href='analytics.html'" style="background: linear-gradient(135deg, var(--warning-500), var(--warning-600)); color: white; border: none; padding: 1.5rem; border-radius: var(--border-radius); font-weight: 600; cursor: pointer; transition: all var(--transition-fast); box-shadow: var(--shadow-md);">
-                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📊</div>
-                        <div>Análises Detalhadas</div>
-                        <div style="font-size: 0.875rem; opacity: 0.9; margin-top: 0.25rem;">Relatórios e métricas</div>
-                    </button>
-                    
-                    <button style="background: linear-gradient(135deg, var(--success-500), var(--success-600)); color: white; border: none; padding: 1.5rem; border-radius: var(--border-radius); font-weight: 600; cursor: pointer; transition: all var(--transition-fast); box-shadow: var(--shadow-md);">
-                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🔄</div>
-                        <div>Sincronizar Dados</div>
-                        <div style="font-size: 0.875rem; opacity: 0.9; margin-top: 0.25rem;">Atualizar informações</div>
-                    </button>
-                    
-                    <button style="background: linear-gradient(135deg, var(--neutral-600), var(--neutral-700)); color: white; border: none; padding: 1.5rem; border-radius: var(--border-radius); font-weight: 600; cursor: pointer; transition: all var(--transition-fast); box-shadow: var(--shadow-md);">
-                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">⚙️</div>
-                        <div>Configurações</div>
-                        <div style="font-size: 0.875rem; opacity: 0.9; margin-top: 0.25rem;">Ajustes do sistema</div>
-                    </button>
-                </div>
-            </section>
-        </main>
-    </div>
-
     <style>
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+        /* Estilos específicos para a página de login */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #1a202c 100%); /* Mantém o gradiente do tema */
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
-        
-        .analytics-section button:hover {
-            transform: translateY(-4px);
+
+        .login-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: 3rem;
             box-shadow: var(--shadow-xl);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            backdrop-filter: blur(20px); /* Adiciona um efeito de blur */
+        }
+
+        .login-container h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--primary-300));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .login-container p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .login-form .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .login-form .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .login-form .form-group input {
+            width: 100%;
+            padding: 1rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+        }
+
+        .login-form .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-500);
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+            background: var(--bg-hover);
+        }
+
+        .login-form .form-group input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .login-form .form-actions {
+            margin-top: 2rem;
+        }
+
+        .login-form .btn-primary {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, var(--primary-500), var(--primary-600)) !important;
+            border: 1px solid var(--primary-500);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .login-form .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .login-form .forgot-password {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .login-form .forgot-password:hover {
+            color: var(--primary-400);
+            text-decoration: underline;
+        }
+
+        /* Estilo para feedback de erro */
+        .error-message {
+            color: var(--error-500);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            text-align: left;
         }
     </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Bem-vindo de volta!</h1>
+        <p>Acesse sua conta com suas credenciais.</p>
+        <form id="loginForm" class="login-form">
+            <div class="form-group">
+                <label for="username">Usuário</label>
+                <input type="text" id="username" name="username" placeholder="Digite seu nome de usuário" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" placeholder="6 dígitos" required>
+            </div>
+            <div id="errorMessage" class="error-message"></div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Entrar</button>
+            </div>
+            <a href="#" class="forgot-password">Esqueceu sua senha?</a>
+        </form>
+    </div>
 
-    <script src="script.js?v=2.0"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Previne o envio padrão do formulário
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessageDiv = document.getElementById('errorMessage');
+
+            // Credenciais padrão (simulando um backend simples)
+            const validUsername = "gestao_user"; // Exemplo de usuário
+            const defaultPassword = "102030";
+
+            errorMessageDiv.textContent = ''; // Limpa mensagens de erro anteriores
+
+            if (username === validUsername && password === defaultPassword) {
+                // Login bem-sucedido - Redirecionar para a página principal
+                // Em um aplicativo real, você faria um redirecionamento ou mostraria uma mensagem de sucesso.
+                // Para este exemplo, vamos apenas exibir uma mensagem.
+                alert('Login bem-sucedido! Redirecionando...');
+                localStorage.setItem('isAuthenticated', 'true');
+                window.location.href = '/dashboard.html'; // Descomente para redirecionar
+            } else {
+                // Credenciais inválidas
+                errorMessageDiv.textContent = 'Usuário ou senha inválidos. Tente novamente.';
+                // Opcional: Limpar o campo de senha após falha
+                document.getElementById('password').value = '';
+            }
+        });
+    </script>
 </body>
 </html>
