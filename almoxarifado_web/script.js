@@ -356,7 +356,7 @@ async function sincronizarDadosSupabase() {
                     <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
                         <div class="loading-spinner" style="width: 40px; height: 40px; border: 3px solid var(--border-color); border-top: 3px solid var(--primary-500); border-radius: 50%; animation: spin 1s linear infinite;"></div>
                         <div style="color: var(--text-primary); font-weight: 600;">Sincronizando dados...</div>
-                        <div style="color: var(--text-muted); font-size: 0.875rem;">Buscando dados da view e salvando na tabela espelho</div>
+                        <div style="color: var(--text-muted); font-size: 0.875rem;">Atualizando a tabela espelho com dados da view.</div>
                     </div>
                 </td>
             </tr>
@@ -364,43 +364,48 @@ async function sincronizarDadosSupabase() {
 
         // Adicionar animação de loading
         const style = document.createElement('style');
-        style.textContent = `
-            @keyframes spin {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
-            }
-        `;
+        style.textContent = `@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`;
         document.head.appendChild(style);
 
         // 1. Buscar dados da view
         const { data: viewData, error: viewError } = await supabaseClient
             .from(CONFIG.NOME_DA_VIEW)
             .select('*');
-
         if (viewError) throw viewError;
 
-        // 2. Salvar na tabela espelho
-        if (viewData && viewData.length > 0) {
+        // 2. Buscar dados existentes da tabela espelho para mesclagem
+        const { data: espelhoData, error: espelhoError } = await supabaseClient
+            .from('requisicoes_espelho')
+            .select('itemrequisicaoid, qtdbaixada, status');
+        if (espelhoError) throw espelhoError;
+
+        const espelhoMap = new Map(espelhoData.map(item => [item.itemrequisicaoid, item]));
+
+        // 3. Preparar dados para o upsert, preservando qtdbaixada e status
+        const dataToUpsert = viewData.map(viewItem => {
+            const existingItem = espelhoMap.get(viewItem.itemrequisicaoid);
+            return {
+                ...viewItem,
+                qtdbaixada: existingItem ? existingItem.qtdbaixada : 0,
+                status: existingItem ? existingItem.status : CONFIG.SITUACAO_PADRAO
+            };
+        });
+
+        // 4. Salvar na tabela espelho
+        if (dataToUpsert.length > 0) {
             const { error: upsertError } = await supabaseClient
                 .from('requisicoes_espelho')
-                .upsert(viewData, { onConflict: 'itemrequisicaoid' });
-
+                .upsert(dataToUpsert, { onConflict: 'itemrequisicaoid' });
             if (upsertError) throw upsertError;
         }
 
-        // 3. Ler da tabela espelho
-        const { data: espelhoData, error: espelhoError } = await supabaseClient
+        // 5. Ler da tabela espelho para exibir
+        const { data: finalData, error: finalError } = await supabaseClient
             .from('requisicoes_espelho')
             .select('*');
+        if (finalError) throw finalError;
 
-        if (espelhoError) throw espelhoError;
-
-        AppState.allRequisicoesData = espelhoData.map(item => ({
-            ...item,
-            qtdbaixada: item.qtdbaixada || 0,
-            status: item.status || CONFIG.SITUACAO_PADRAO
-        }));
-
+        AppState.allRequisicoesData = finalData;
         aplicarFiltros();
 
         Utils.showNotification(
@@ -410,7 +415,7 @@ async function sincronizarDadosSupabase() {
 
     } catch (error) {
         console.error('Erro na sincronização:', error);
-        Utils.showNotification('Erro ao sincronizar dados. Tente novamente.', 'error');
+        Utils.showNotification(`Erro ao sincronizar: ${error.message}`, 'error');
 
         tableBody.innerHTML = `
             <tr>
@@ -422,7 +427,7 @@ async function sincronizarDadosSupabase() {
                             <line x1="9" y1="9" x2="15" y2="15"/>
                         </svg>
                         <div style="font-weight: 600;">Erro ao carregar dados</div>
-                        <div style="font-size: 0.875rem; color: var(--text-muted);">Clique em "Sincronizar" para tentar novamente</div>
+                        <div style="font-size: 0.875rem; color: var(--text-muted);">Verifique o console para detalhes e tente novamente.</div>
                     </div>
                 </td>
             </tr>
@@ -658,18 +663,19 @@ async function baixarRequisicao(req, novaQtdBaixada) {
         }
         
         const { error } = await supabaseClient
-            .from('requisicoes')
+            .from('requisicoes_espelho')
             .update({ 
                 qtdbaixada: novaQtdBaixada, 
-                status: newStatus 
+                status: newStatus,
+                updated_at: new Date().toISOString()
             })
-            .eq('requisicaoid', req.requisicaoid);
+            .eq('itemrequisicaoid', req.itemrequisicaoid);
         
         if (error) throw error;
         
         // Atualizar dados locais
         const index = AppState.allRequisicoesData.findIndex(
-            item => item.requisicaoid === req.requisicaoid && item.codigo === req.codigo
+            item => item.itemrequisicaoid === req.itemrequisicaoid
         );
         
         if (index !== -1) {
@@ -678,12 +684,11 @@ async function baixarRequisicao(req, novaQtdBaixada) {
         }
         
         aplicarFiltros();
-        Utils.saveToLocalStorage('requisicoesData', AppState.allRequisicoesData); // Salvar no Local Storage
         Utils.showNotification('Requisição atualizada com sucesso!', 'success');
         
     } catch (error) {
         console.error('Erro ao baixar requisição:', error);
-        Utils.showNotification('Erro ao atualizar requisição.', 'error');
+        Utils.showNotification(`Erro ao atualizar requisição: ${error.message}`, 'error');
     }
 }
 
