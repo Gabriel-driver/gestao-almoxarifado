@@ -18,6 +18,7 @@ const AppState = {
     isLoading: false,
     currentPage: '',
     sidebarCollapsed: false,
+    lastSyncTimestamp: null, // Adicionado para rastrear a última sincronização
     pagination: {
         currentPage: 1,
         itemsPerPage: 50,
@@ -102,6 +103,26 @@ const Utils = {
             element.classList.remove('loading');
             element.style.pointerEvents = '';
             element.style.opacity = '';
+        }
+    },
+    
+    // Funções de Local Storage
+    saveToLocalStorage: (key, data) => {
+        try {
+            localStorage.setItem(key, JSON.stringify(data));
+        } catch (e) {
+            console.error("Erro ao salvar no Local Storage:", e);
+            Utils.showNotification('Não foi possível salvar os dados localmente.', 'error');
+        }
+    },
+
+    loadFromLocalStorage: (key) => {
+        try {
+            const data = localStorage.getItem(key);
+            return data ? JSON.parse(data) : null;
+        } catch (e) {
+            console.error("Erro ao carregar do Local Storage:", e);
+            return null;
         }
     }
 };
@@ -342,13 +363,21 @@ function initRequisicoes() {
 async function sincronizarDadosSupabase() {
     const tableBody = document.querySelector('#requisicoes-table tbody');
     const syncBtn = document.getElementById('sync-requisicoes-btn');
-    
+
     if (!tableBody || !syncBtn) return;
-    
+
     try {
         AppState.isLoading = true;
         Utils.setLoadingState(syncBtn, true);
-        
+
+        // Carregar dados do Local Storage
+        const localData = Utils.loadFromLocalStorage('requisicoesData') || [];
+        AppState.allRequisicoesData = localData;
+        AppState.lastSyncTimestamp = Utils.loadFromLocalStorage('lastSyncTimestamp');
+
+        // Mostrar dados locais imediatamente
+        aplicarFiltros();
+
         // Mostrar loading na tabela
         tableBody.innerHTML = `
             <tr>
@@ -356,12 +385,12 @@ async function sincronizarDadosSupabase() {
                     <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
                         <div class="loading-spinner" style="width: 40px; height: 40px; border: 3px solid var(--border-color); border-top: 3px solid var(--primary-500); border-radius: 50%; animation: spin 1s linear infinite;"></div>
                         <div style="color: var(--text-primary); font-weight: 600;">Sincronizando dados...</div>
-                        <div style="color: var(--text-muted); font-size: 0.875rem;">Buscando requisições do Supabase</div>
+                        <div style="color: var(--text-muted); font-size: 0.875rem;">Buscando atualizações do Supabase</div>
                     </div>
                 </td>
             </tr>
         `;
-        
+
         // Adicionar animação de loading
         const style = document.createElement('style');
         style.textContent = `
@@ -371,50 +400,47 @@ async function sincronizarDadosSupabase() {
             }
         `;
         document.head.appendChild(style);
-        
-        let todosOsDados = [];
-        let pagina = 0;
-        let continuarBuscando = true;
-        
-        while (continuarBuscando) {
-            const offset = pagina * CONFIG.TAMANHO_PAGINA;
-            const { data: dadosPagina, error } = await supabaseClient
-                .from(CONFIG.NOME_DA_VIEW)
-                .select('*')
-                .gt('qtdentregue', 0)
-                .range(offset, offset + CONFIG.TAMANHO_PAGINA - 1);
-            
-            if (error) throw error;
-            
-            if (dadosPagina.length > 0) {
-                todosOsDados = todosOsDados.concat(dadosPagina);
-            }
-            
-            if (dadosPagina.length < CONFIG.TAMANHO_PAGINA) {
-                continuarBuscando = false;
-            } else {
-                pagina++;
-            }
+
+        const currentSyncTimestamp = new Date().toISOString();
+        let query = supabaseClient.from(CONFIG.NOME_DA_VIEW).select('*').gt('qtdentregue', 0);
+
+        if (AppState.lastSyncTimestamp) {
+            query = query.or(`updated_at.gte.${AppState.lastSyncTimestamp},created_at.gte.${AppState.lastSyncTimestamp}`);
         }
-        
-        // Processar dados
-        AppState.allRequisicoesData = todosOsDados.map(item => ({
-            ...item,
-            qtdbaixada: item.qtdbaixada || 0,
-            status: item.status || CONFIG.SITUACAO_PADRAO
-        }));
-        
+
+        const { data: newOrUpdatedData, error } = await query;
+
+        if (error) throw error;
+
+        // Mesclar dados
+        if (newOrUpdatedData.length > 0) {
+            const dataMap = new Map(AppState.allRequisicoesData.map(item => [item.requisicaoid + item.codigo, item]));
+            newOrUpdatedData.forEach(item => {
+                dataMap.set(item.requisicaoid + item.codigo, {
+                    ...item,
+                    qtdbaixada: item.qtdbaixada || 0,
+                    status: item.status || CONFIG.SITUACAO_PADRAO
+                });
+            });
+            AppState.allRequisicoesData = Array.from(dataMap.values());
+        }
+
+        // Salvar no Local Storage
+        Utils.saveToLocalStorage('requisicoesData', AppState.allRequisicoesData);
+        Utils.saveToLocalStorage('lastSyncTimestamp', currentSyncTimestamp);
+        AppState.lastSyncTimestamp = currentSyncTimestamp;
+
         aplicarFiltros();
-        
+
         Utils.showNotification(
-            `Sincronização concluída! ${Utils.formatNumber(AppState.allRequisicoesData.length)} requisições carregadas.`,
+            `Sincronização concluída! ${newOrUpdatedData.length} registros atualizados.`,
             'success'
         );
-        
+
     } catch (error) {
         console.error('Erro na sincronização:', error);
         Utils.showNotification('Erro ao sincronizar dados. Tente novamente.', 'error');
-        
+
         tableBody.innerHTML = `
             <tr>
                 <td colspan="10" style="text-align: center; padding: 3rem; color: var(--error-500);">
@@ -681,6 +707,7 @@ async function baixarRequisicao(req, novaQtdBaixada) {
         }
         
         aplicarFiltros();
+        Utils.saveToLocalStorage('requisicoesData', AppState.allRequisicoesData); // Salvar no Local Storage
         Utils.showNotification('Requisição atualizada com sucesso!', 'success');
         
     } catch (error) {
