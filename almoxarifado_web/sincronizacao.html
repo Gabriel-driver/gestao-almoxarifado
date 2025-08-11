@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sincronização de Dados - Almoxarifado Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="description" content="Central de sincronização de dados com múltiplas fontes e monitoramento em tempo real">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span>Almoxarifado Digital</span>
+                </div>
+                <div class="subtitle">Gestão Inteligente de Materiais</div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="menu-section-title">Principal</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="index.html" data-tooltip="Dashboard">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"/>
+                                <rect x="14" y="3" width="7" height="7"/>
+                                <rect x="14" y="14" width="7" height="7"/>
+                                <rect x="3" y="14" width="7" height="7"/>
+                            </svg>
+                            <span>Dashboard Executivo</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="requisicoes.html" data-tooltip="Baixas">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/>
+                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                                <path d="M9 14l2 2 4-4"/>
+                            </svg>
+                            <span>Gestão de Baixas</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="analytics.html" data-tooltip="Analytics">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 3v18h18"/>
+                                <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
+                            </svg>
+                            <span>Analytics Avançado</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="menu-section-title">Operações</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="sincronizacao.html" class="active" data-tooltip="Sincronizar">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 4v6h-6"/>
+                                <path d="M1 20v-6h6"/>
+                                <path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 773.51 15"/>
+                            </svg>
+                            <span>Sincronização de Dados</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="estoque.html" data-tooltip="Estoque">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                                <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+                                <line x1="12" y1="22.08" x2="12" y2="12"/>
+                            </svg>
+                            <span>Controle de Estoque</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="relatorios.html" data-tooltip="Relatórios">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10,9 9,9 8,9"/>
+                            </svg>
+                            <span>Relatórios Gerenciais</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="menu-section-title">Administração</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="usuarios.html" data-tooltip="Usuários">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                                <circle cx="8.5" cy="7" r="4"/>
+                                <path d="M20 8v6M23 11h-6"/>
+                            </svg>
+                            <span>Gestão de Usuários</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="configuracoes.html" data-tooltip="Config">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+                            </svg>
+                            <span>Configurações do Sistema</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="auditoria.html" data-tooltip="Auditoria">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 12l2 2 4-4"/>
+                                <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
+                                <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
+                                <path d="M13 12h3l4 4-4 4h-3"/>
+                                <path d="M11 12H8l-4-4 4-4h3"/>
+                            </svg>
+                            <span>Auditoria e Logs</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">GR</div>
+                    <div class="user-details">
+                        <div class="user-name">Gabriel Ribeiro</div>
+                        <div class="user-role">Administrador do Sistema</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <button id="toggle-sidebar-btn" class="sidebar-toggle-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12h18m-9-9l9 9-9 9"/>
+                </svg>
+            </button>
+            
+            <header class="main-header">
+                <div>
+                    <h1>Central de Sincronização de Dados</h1>
+                    <p>Gerenciamento inteligente de sincronização com múltiplas fontes de dados, monitoramento em tempo real e controle de integridade</p>
+                </div>
+            </header>
+
+            <!-- Status das Conexões -->
+            <section class="dashboard-cards">
+                <div class="card">
+                    <h3>Supabase</h3>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="width: 12px; height: 12px; background: var(--success-500); border-radius: 50%; animation: pulse 2s infinite;"></div>
+                        <span style="color: var(--success-500); font-weight: 600;">Conectado</span>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.875rem;">
+                        Última sync: há 2 minutos
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <h3>SharePoint</h3>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="width: 12px; height: 12px; background: var(--success-500); border-radius: 50%; animation: pulse 2s infinite;"></div>
+                        <span style="color: var(--success-500); font-weight: 600;">Conectado</span>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.875rem;">
+                        Última sync: há 5 minutos
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <h3>Gmail API</h3>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="width: 12px; height: 12px; background: var(--warning-500); border-radius: 50%; animation: pulse 2s infinite;"></div>
+                        <span style="color: var(--warning-500); font-weight: 600;">Limitado</span>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.875rem;">
+                        Quota: 85% utilizada
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <h3>Sistema Local</h3>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="width: 12px; height: 12px; background: var(--success-500); border-radius: 50%; animation: pulse 2s infinite;"></div>
+                        <span style="color: var(--success-500); font-weight: 600;">Online</span>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.875rem;">
+                        Cache: 2.3GB utilizados
+                    </p>
+                </div>
+            </section>
+
+            <!-- Controles de Sincronização -->
+            <section class="form-container">
+                <h2 style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M23 4v6h-6"/>
+                        <path d="M1 20v-6h6"/>
+                        <path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 773.51 15"/>
+                    </svg>
+                    Controles de Sincronização
+                </h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                    <!-- Sincronização Supabase -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: var(--border-radius); border: 1px solid var(--border-color);">
+                        <h3 style="color: var(--text-primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                            </svg>
+                            Supabase Database
+                        </h3>
+                        <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 0.875rem;">
+                            Sincronização de requisições, estoque e dados operacionais
+                        </p>
+                        <div style="margin-bottom: 1rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span style="font-size: 0.875rem; color: var(--text-secondary);">Progresso</span>
+                                <span style="font-size: 0.875rem; color: var(--text-secondary);">100%</span>
+                            </div>
+                            <div style="background: var(--bg-primary); height: 8px; border-radius: 4px; overflow: hidden;">
+                                <div style="background: linear-gradient(90deg, var(--success-500), var(--success-600)); height: 100%; width: 100%; border-radius: 4px;"></div>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn btn-primary" onclick="syncSupabase()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M23 4v6h-6"/>
+                                    <path d="M1 20v-6h6"/>
+                                    <path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 773.51 15"/>
+                                </svg>
+                                Sincronizar
+                            </button>
+                            <button class="btn btn-secondary" onclick="configSupabase()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3"/>
+                                    <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+                                </svg>
+                                Configurar
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Sincronização SharePoint -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: var(--border-radius); border: 1px solid var(--border-color);">
+                        <h3 style="color: var(--text-primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                            </svg>
+                            Microsoft SharePoint
+                        </h3>
+                        <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 0.875rem;">
+                            Integração com planilhas de controle e documentos
+                        </p>
+                        <div style="margin-bottom: 1rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span style="font-size: 0.875rem; color: var(--text-secondary);">Progresso</span>
+                                <span style="font-size: 0.875rem; color: var(--text-secondary);">100%</span>
+                            </div>
+                            <div style="background: var(--bg-primary); height: 8px; border-radius: 4px; overflow: hidden;">
+                                <div style="background: linear-gradient(90deg, var(--primary-500), var(--primary-600)); height: 100%; width: 100%; border-radius: 4px;"></div>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn btn-primary" onclick="syncSharePoint()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M23 4v6h-6"/>
+                                    <path d="M1 20v-6h6"/>
+                                    <path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 773.51 15"/>
+                                </svg>
+                                Sincronizar
+                            </button>
+                            <button class="btn btn-secondary" onclick="configSharePoint()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                                Configurar
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Sincronização Gmail -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: var(--border-radius); border: 1px solid var(--border-color);">
+                        <h3 style="color: var(--text-primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            Gmail API
+                        </h3>
+                        <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 0.875rem;">
+                            Processamento automático de relatórios por e-mail
+                        </p>
+                        <div style="margin-bottom: 1rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span style="font-size: 0.875rem; color: var(--text-secondary);">Quota Utilizada</span>
+                                <span style="font-size: 0.875rem; color: var(--warning-500);">85%</span>
+                            </div>
+                            <div style="background: var(--bg-primary); height: 8px; border-radius: 4px; overflow: hidden;">
+                                <div style="background: linear-gradient(90deg, var(--warning-500), var(--warning-600)); height: 100%; width: 85%; border-radius: 4px;"></div>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn btn-primary" onclick="syncGmail()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                                Verificar E-mails
+                            </button>
+                            <button class="btn btn-secondary" onclick="configGmail()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                                Configurar
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Sincronização Completa -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: var(--border-radius); border: 1px solid var(--border-color);">
+                        <h3 style="color: var(--text-primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            Sincronização Completa
+                        </h3>
+                        <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 0.875rem;">
+                            Executa sincronização de todas as fontes de dados
+                        </p>
+                        <div style="margin-bottom: 1rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span style="font-size: 0.875rem; color: var(--text-secondary);">Última execução</span>
+                                <span style="font-size: 0.875rem; color: var(--text-secondary);">14:30</span>
+                            </div>
+                            <div style="background: var(--bg-primary); height: 8px; border-radius: 4px; overflow: hidden;">
+                                <div style="background: linear-gradient(90deg, var(--success-500), var(--success-600)); height: 100%; width: 100%; border-radius: 4px;"></div>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn btn-primary" onclick="syncAll()" style="flex: 1;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M23 4v6h-6"/>
+                                    <path d="M1 20v-6h6"/>
+                                    <path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 773.51 15"/>
+                                </svg>
+                                Sincronizar Tudo
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Configurações Automáticas -->
+                    <div style="background: var(--bg-tertiary); padding: 1.5rem; border-radius: var(--border-radius); border: 1px solid var(--border-color);">
+                        <h3 style="color: var(--text-primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12,6 12,12 16,14"/>
+                            </svg>
+                            Sincronização Automática
+                        </h3>
+                        <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 0.875rem;">
+                            Configurar intervalos de sincronização automática
+                        </p>
+                        <div style="margin-bottom: 1rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-primary);">Intervalo</label>
+                            <select style="width: 100%; padding: 0.5rem; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--border-radius-sm); color: var(--text-primary);">
+                                <option value="5">A cada 5 minutos</option>
+                                <option value="15" selected>A cada 15 minutos</option>
+                                <option value="30">A cada 30 minutos</option>
+                                <option value="60">A cada 1 hora</option>
+                                <option value="0">Desabilitado</option>
+                            </select>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn btn-success" onclick="enableAutoSync()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                Ativar
+                            </button>
+                            <button class="btn btn-secondary" onclick="disableAutoSync()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="15" y1="9" x2="9" y2="15"/>
+                                    <line x1="9" y1="9" x2="15" y2="15"/>
+                                </svg>
+                                Pausar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Histórico de Sincronizações -->
+            <section class="form-container">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h2 style="display: flex; align-items: center; gap: 0.75rem; margin: 0;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12,6 12,12 16,14"/>
+                        </svg>
+                        Histórico de Sincronizações
+                    </h2>
+                    
+                    <button class="btn btn-secondary" id="clear-sync-history-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 6h18"/>
+                            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+                        </svg>
+                        Limpar Histórico
+                    </button>
+                </div>
+                
+                <div class="table-container">
+                    <table id="sync-history-table">
+                        <thead>
+                            <tr>
+                                <th>Data/Hora</th>
+                                <th>Fonte</th>
+                                <th>Tipo</th>
+                                <th>Registros</th>
+                                <th>Duração</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sync-history-body">
+                            <tr>
+                                <td>15/01/2025 14:32:15</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                                        </svg>
+                                        Supabase
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="background: var(--primary-50); color: var(--primary-700); padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                                        Automática
+                                    </span>
+                                </td>
+                                <td>1.247</td>
+                                <td>2.3s</td>
+                                <td>
+                                    <span style="background: var(--success-50); color: var(--success-700); padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                                        ✅ Sucesso
+                                    </span>
+                                </td>
+                                <td class="table-actions">
+                                    <button class="btn-view" title="Ver Detalhes">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>15/01/2025 14:27:42</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                            <polyline points="14,2 14,8 20,8"/>
+                                        </svg>
+                                        SharePoint
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="background: var(--warning-50); color: var(--warning-700); padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                                        Manual
+                                    </span>
+                                </td>
+                                <td>89</td>
+                                <td>1.8s</td>
+                                <td>
+                                    <span style="background: var(--success-50); color: var(--success-700); padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                                        ✅ Sucesso
+                                    </span>
+                                </td>
+                                <td class="table-actions">
+                                    <button class="btn-view" title="Ver Detalhes">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>15/01/2025 14:15:18</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                            <polyline points="22,6 12,13 2,6"/>
+                                        </svg>
+                                        Gmail
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="background: var(--primary-50); color: var(--primary-700); padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                                        Automática
+                                    </span>
+                                </td>
+                                <td>3</td>
+                                <td>0.9s</td>
+                                <td>
+                                    <span style="background: var(--warning-50); color: var(--warning-700); padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                                        ⚠️ Parcial
+                                    </span>
+                                </td>
+                                <td class="table-actions">
+                                    <button class="btn-view" title="Ver Detalhes">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js?v=2.0"></script>
+    <script>
+        // Funções de sincronização
+        function syncSupabase() {
+            Utils.showNotification('Iniciando sincronização com Supabase...', 'info');
+            setTimeout(() => {
+                Utils.showNotification('Supabase sincronizado com sucesso! 1.247 registros processados.', 'success');
+            }, 3000);
+        }
+
+        function syncSharePoint() {
+            Utils.showNotification('Iniciando sincronização com SharePoint...', 'info');
+            setTimeout(() => {
+                Utils.showNotification('SharePoint sincronizado com sucesso! 89 registros processados.', 'success');
+            }, 2500);
+        }
+
+        function syncGmail() {
+            Utils.showNotification('Verificando novos e-mails...', 'info');
+            setTimeout(() => {
+                Utils.showNotification('3 novos e-mails processados.', 'success');
+            }, 2000);
+        }
+
+        function syncAll() {
+            const btn = event.target;
+            Utils.setLoadingState(btn, true);
+            Utils.showNotification('Iniciando sincronização completa...', 'info');
+            
+            setTimeout(() => {
+                Utils.setLoadingState(btn, false);
+                Utils.showNotification('Sincronização completa finalizada! Todas as fontes atualizadas.', 'success');
+            }, 5000);
+        }
+
+        function configSupabase() {
+            Utils.showNotification('Abrindo configurações do Supabase...', 'info');
+        }
+
+        function configSharePoint() {
+            Utils.showNotification('Abrindo configurações do SharePoint...', 'info');
+        }
+
+        function configGmail() {
+            Utils.showNotification('Abrindo configurações do Gmail...', 'info');
+        }
+
+        function enableAutoSync() {
+            Utils.showNotification('Sincronização automática ativada!', 'success');
+        }
+
+        function disableAutoSync() {
+            Utils.showNotification('Sincronização automática pausada.', 'warning');
+        }
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('clear-sync-history-btn').addEventListener('click', () => {
+                if (confirm('Deseja limpar todo o histórico de sincronizações?')) {
+                    Utils.showNotification('Histórico de sincronizações limpo!', 'success');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

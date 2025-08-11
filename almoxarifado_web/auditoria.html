@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auditoria e Logs - Almoxarifado Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="description" content="Sistema completo de auditoria e logs para rastreamento de atividades">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span>Almoxarifado Digital</span>
+                </div>
+                <div class="subtitle">Gestão Inteligente de Materiais</div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="menu-section-title">Principal</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="index.html" data-tooltip="Dashboard">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"/>
+                                <rect x="14" y="3" width="7" height="7"/>
+                                <rect x="14" y="14" width="7" height="7"/>
+                                <rect x="3" y="14" width="7" height="7"/>
+                            </svg>
+                            <span>Dashboard Executivo</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="requisicoes.html" data-tooltip="Baixas">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/>
+                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                                <path d="M9 14l2 2 4-4"/>
+                            </svg>
+                            <span>Gestão de Baixas</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="analytics.html" data-tooltip="Analytics">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 3v18h18"/>
+                                <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
+                            </svg>
+                            <span>Analytics Avançado</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="menu-section-title">Operações</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="sincronizacao.html" data-tooltip="Sincronizar">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 4v6h-6"/>
+                                <path d="M1 20v-6h6"/>
+                                <path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 073.51 15"/>
+                            </svg>
+                            <span>Sincronização de Dados</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="estoque.html" data-tooltip="Estoque">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                                <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+                                <line x1="12" y1="22.08" x2="12" y2="12"/>
+                            </svg>
+                            <span>Controle de Estoque</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="relatorios.html" data-tooltip="Relatórios">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10,9 9,9 8,9"/>
+                            </svg>
+                            <span>Relatórios Gerenciais</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="menu-section-title">Administração</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="usuarios.html" data-tooltip="Usuários">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                                <circle cx="8.5" cy="7" r="4"/>
+                                <path d="M20 8v6M23 11h-6"/>
+                            </svg>
+                            <span>Gestão de Usuários</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="configuracoes.html" data-tooltip="Config">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+                            </svg>
+                            <span>Configurações do Sistema</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="auditoria.html" class="active" data-tooltip="Auditoria">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 12l2 2 4-4"/>
+                                <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
+                                <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
+                                <path d="M13 12h3l4 4-4 4h-3"/>
+                                <path d="M11 12H8l-4-4 4-4h3"/>
+                            </svg>
+                            <span>Auditoria e Logs</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">GR</div>
+                    <div class="user-details">
+                        <div class="user-name">Gabriel Ribeiro</div>
+                        <div class="user-role">Administrador do Sistema</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <button id="toggle-sidebar-btn" class="sidebar-toggle-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12h18m-9-9l9 9-9 9"/>
+                </svg>
+            </button>
+            
+            <header class="main-header">
+                <div>
+                    <h1>Auditoria e Logs do Sistema</h1>
+                    <p>Monitoramento completo de atividades, rastreamento de alterações e análise de conformidade para garantir segurança e transparência</p>
+                </div>
+            </header>
+
+            <!-- Métricas de Auditoria -->
+            <section class="dashboard-cards">
+                <div class="card">
+                    <h3>Atividades Hoje</h3>
+                    <div class="card-value" id="activities-today">247</div>
+                    <p style="color: var(--success-500); font-size: 0.875rem; margin-top: 0.5rem;">
+                        ↑ 12% vs. ontem
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <h3>Usuários Ativos</h3>
+                    <div class="card-value" id="active-users">18</div>
+                    <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: 0.5rem;">
+                        Últimas 24 horas
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <h3>Alertas de Segurança</h3>
+                    <div class="card-value" id="security-alerts">3</div>
+                    <p style="color: var(--warning-500); font-size: 0.875rem; margin-top: 0.5rem;">
+                        ⚠️ Requer atenção
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <h3>Taxa de Conformidade</h3>
+                    <div class="card-value" id="compliance-rate">98.5%</div>
+                    <p style="color: var(--success-500); font-size: 0.875rem; margin-top: 0.5rem;">
+                        ✓ Dentro do padrão
+                    </p>
+                </div>
+            </section>
+
+            <!-- Filtros de Auditoria -->
+            <section class="filters-section">
+                <h2>Filtros de Auditoria</h2>
+                <p>Configure os filtros para analisar logs específicos e atividades do sistema</p>
+                
+                <div class="filters-grid">
+                    <div class="filter-item">
+                        <label for="filter-date-start">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            Data Inicial
+                        </label>
+                        <input type="date" id="filter-date-start" value="2025-01-01">
+                    </div>
+                    
+                    <div class="filter-item">
+                        <label for="filter-date-end">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            Data Final
+                        </label>
+                        <input type="date" id="filter-date-end" value="2025-01-31">
+                    </div>
+                    
+                    <div class="filter-item">
+                        <label for="filter-user">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            Usuário
+                        </label>
+                        <select id="filter-user">
+                            <option value="">Todos os usuários</option>
+                            <option value="gabriel.ribeiro">Gabriel Ribeiro</option>
+                            <option value="maria.silva">Maria Silva</option>
+                            <option value="joao.santos">João Santos</option>
+                            <option value="ana.costa">Ana Costa</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-item">
+                        <label for="filter-action">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            Tipo de Ação
+                        </label>
+                        <select id="filter-action">
+                            <option value="">Todas as ações</option>
+                            <option value="login">🔐 Login/Logout</option>
+                            <option value="create">➕ Criação</option>
+                            <option value="update">✏️ Atualização</option>
+                            <option value="delete">🗑️ Exclusão</option>
+                            <option value="export">📤 Exportação</option>
+                            <option value="import">📥 Importação</option>
+                            <option value="sync">🔄 Sincronização</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-item">
+                        <label for="filter-module">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2z"/>
+                            </svg>
+                            Módulo
+                        </label>
+                        <select id="filter-module">
+                            <option value="">Todos os módulos</option>
+                            <option value="estoque">📦 Estoque</option>
+                            <option value="requisicoes">📋 Requisições</option>
+                            <option value="usuarios">👥 Usuários</option>
+                            <option value="relatorios">📊 Relatórios</option>
+                            <option value="configuracoes">⚙️ Configurações</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-item">
+                        <label for="filter-severity">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+                                <line x1="12" y1="9" x2="12" y2="13"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                            Nível de Severidade
+                        </label>
+                        <select id="filter-severity">
+                            <option value="">Todos os níveis</option>
+                            <option value="info">ℹ️ Informação</option>
+                            <option value="warning">⚠️ Aviso</option>
+                            <option value="error">🚨 Erro</option>
+                            <option value="critical">💥 Crítico</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="filter-actions">
+                    <button id="apply-filters-btn" class="btn btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="M21 21l-4.35-4.35"/>
+                        </svg>
+                        Aplicar Filtros
+                    </button>
+                    <button id="clear-filters-btn" class="btn btn-secondary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 6h18"/>
+                            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+                        </svg>
+                        Limpar Filtros
+                    </button>
+                    <button id="export-logs-btn" class="btn btn-secondary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                            <polyline points="7,10 12,15 17,10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Exportar Logs
+                    </button>
+                </div>
+            </section>
+
+            <!-- Logs de Auditoria -->
+            <section class="form-container">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h2 style="display: flex; align-items: center; gap: 0.75rem; margin: 0;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>
+                        Logs de Atividades
+                    </h2>
+                    
+                    <div style="display: flex; gap: 1rem; align-items: center;">
+                        <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-muted); font-size: 0.875rem;">
+                            <div style="width: 8px; height: 8px; background: var(--success-500); border-radius: 50%; animation: pulse 2s infinite;"></div>
+                            Monitoramento em tempo real
+                        </div>
+                        <button class="btn btn-secondary" id="refresh-logs-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 4v6h-6"/>
+                                <path d="M1 20v-6h6"/>
+                                <path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 773.51 15"/>
+                            </svg>
+                            Atualizar
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="table-container">
+                    <table id="audit-logs-table">
+                        <thead>
+                            <tr>
+                                <th>Data/Hora</th>
+                                <th>Usuário</th>
+                                <th>Ação</th>
+                                <th>Módulo</th>
+                                <th>Detalhes</th>
+                                <th>IP</th>
+                                <th>Severidade</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="audit-logs-body">
+                            <tr>
+                                <td>15/01/2025 14:32:15</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                        <div style="width: 24px; height: 24px; background: linear-gradient(135deg, var(--primary-500), var(--primary-600)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 0.75rem;">GR</div>
+                                        Gabriel Ribeiro
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="background: var(--success-50); color: var(--success-700); padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                                        ✏️ Atualização
+                                    </span>
+                                </td>
+                                <td>📦 Estoque</td>
+                                <td>Atualização de saldo do item FER001</td>
+                                <td>192.168.1.100</td>
+                                <td>
+                                    <span style="background: var(--primary-50); color: var(--primary-700); padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                                        ℹ️ Info
+                                    </span>
+                                </td>
+                                <td class="table-actions">
+                                    <button class="btn-view" title="Ver Detalhes">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>15/01/2025 14:28:42</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                        <div style="width: 24px; height: 24px; background: linear-gradient(135deg, var(--warning-500), var(--warning-600)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 0.75rem;">MS</div>
+                                        Maria Silva
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="background: var(--warning-50); color: var(--warning-700); padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                                        📤 Exportação
+                                    </span>
+                                </td>
+                                <td>📊 Relatórios</td>
+                                <td>Exportação de relatório de estoque em PDF</td>
+                                <td>192.168.1.105</td>
+                                <td>
+                                    <span style="background: var(--primary-50); color: var(--primary-700); padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                                        ℹ️ Info
+                                    </span>
+                                </td>
+                                <td class="table-actions">
+                                    <button class="btn-view" title="Ver Detalhes">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>15/01/2025 14:15:33</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                        <div style="width: 24px; height: 24px; background: linear-gradient(135deg, var(--error-500), var(--error-600)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 0.75rem;">JS</div>
+                                        João Santos
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="background: var(--error-50); color: var(--error-700); padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                                        🔐 Login
+                                    </span>
+                                </td>
+                                <td>🔒 Autenticação</td>
+                                <td>Tentativa de login com credenciais inválidas</td>
+                                <td>192.168.1.200</td>
+                                <td>
+                                    <span style="background: var(--warning-50); color: var(--warning-700); padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                                        ⚠️ Aviso
+                                    </span>
+                                </td>
+                                <td class="table-actions">
+                                    <button class="btn-view" title="Ver Detalhes">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>15/01/2025 14:10:18</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                        <div style="width: 24px; height: 24px; background: linear-gradient(135deg, var(--success-500), var(--success-600)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 0.75rem;">AC</div>
+                                        Ana Costa
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="background: var(--primary-50); color: var(--primary-700); padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                                        🔄 Sincronização
+                                    </span>
+                                </td>
+                                <td>📋 Requisições</td>
+                                <td>Sincronização automática com Supabase</td>
+                                <td>192.168.1.110</td>
+                                <td>
+                                    <span style="background: var(--primary-50); color: var(--primary-700); padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                                        ℹ️ Info
+                                    </span>
+                                </td>
+                                <td class="table-actions">
+                                    <button class="btn-view" title="Ver Detalhes">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>15/01/2025 14:05:27</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                        <div style="width: 24px; height: 24px; background: linear-gradient(135deg, var(--primary-500), var(--primary-600)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 0.75rem;">GR</div>
+                                        Gabriel Ribeiro
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="background: var(--success-50); color: var(--success-700); padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                                        ➕ Criação
+                                    </span>
+                                </td>
+                                <td>👥 Usuários</td>
+                                <td>Criação de novo usuário: carlos.oliveira</td>
+                                <td>192.168.1.100</td>
+                                <td>
+                                    <span style="background: var(--primary-50); color: var(--primary-700); padding: 0.25rem 0.75rem; border-radius: var(--border-radius-sm); font-size: 0.8rem; font-weight: 600;">
+                                        ℹ️ Info
+                                    </span>
+                                </td>
+                                <td class="table-actions">
+                                    <button class="btn-view" title="Ver Detalhes">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Paginação -->
+                <div class="pagination" id="pagination-container">
+                    <button id="prev-page">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15,18 9,12 15,6"/>
+                        </svg>
+                        Anterior
+                    </button>
+                    
+                    <div class="pagination-info">
+                        <span id="page-info">Página 1 de 15 (742 registros)</span>
+                    </div>
+                    
+                    <button id="next-page">
+                        Próxima
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9,18 15,12 9,6"/>
+                        </svg>
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js?v=2.0"></script>
+    <script>
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            setupAuditEventListeners();
+            loadAuditLogs();
+        });
+
+        function setupAuditEventListeners() {
+            document.getElementById('apply-filters-btn').addEventListener('click', applyAuditFilters);
+            document.getElementById('clear-filters-btn').addEventListener('click', clearAuditFilters);
+            document.getElementById('export-logs-btn').addEventListener('click', exportAuditLogs);
+            document.getElementById('refresh-logs-btn').addEventListener('click', refreshAuditLogs);
+        }
+
+        function applyAuditFilters() {
+            Utils.showNotification('Filtros aplicados com sucesso!', 'success');
+            loadAuditLogs();
+        }
+
+        function clearAuditFilters() {
+            document.getElementById('filter-date-start').value = '2025-01-01';
+            document.getElementById('filter-date-end').value = '2025-01-31';
+            document.getElementById('filter-user').value = '';
+            document.getElementById('filter-action').value = '';
+            document.getElementById('filter-module').value = '';
+            document.getElementById('filter-severity').value = '';
+            Utils.showNotification('Filtros limpos!', 'info');
+            loadAuditLogs();
+        }
+
+        function exportAuditLogs() {
+            Utils.showNotification('Exportando logs de auditoria...', 'info');
+            setTimeout(() => {
+                Utils.showNotification('Logs exportados com sucesso!', 'success');
+            }, 2000);
+        }
+
+        function refreshAuditLogs() {
+            const btn = document.getElementById('refresh-logs-btn');
+            Utils.setLoadingState(btn, true);
+            
+            setTimeout(() => {
+                Utils.setLoadingState(btn, false);
+                Utils.showNotification('Logs atualizados!', 'success');
+                loadAuditLogs();
+            }, 1500);
+        }
+
+        function loadAuditLogs() {
+            // Simular carregamento de logs
+            // Os dados já estão no HTML para demonstração
+        }
+    </script>
+</body>
+</html>
