@@ -275,7 +275,7 @@ function initSincronizacao() {
 }
 
 async function sincronizarDadosSupabase() {
-    const syncBtn = document.querySelector('.btn-primary[onclick="syncSupabase()"]');
+    const syncBtn = document.getElementById('sync-supabase-btn');
     if (!syncBtn || AppState.isLoading) return;
 
     try {
