@@ -18,7 +18,6 @@ const AppState = {
     isLoading: false,
     currentPage: '',
     sidebarCollapsed: false,
-    lastSyncTimestamp: null, // Adicionado para rastrear a última sincronização
     pagination: {
         currentPage: 1,
         itemsPerPage: 50,
@@ -103,26 +102,6 @@ const Utils = {
             element.classList.remove('loading');
             element.style.pointerEvents = '';
             element.style.opacity = '';
-        }
-    },
-    
-    // Funções de Local Storage
-    saveToLocalStorage: (key, data) => {
-        try {
-            localStorage.setItem(key, JSON.stringify(data));
-        } catch (e) {
-            console.error("Erro ao salvar no Local Storage:", e);
-            Utils.showNotification('Não foi possível salvar os dados localmente.', 'error');
-        }
-    },
-
-    loadFromLocalStorage: (key) => {
-        try {
-            const data = localStorage.getItem(key);
-            return data ? JSON.parse(data) : null;
-        } catch (e) {
-            console.error("Erro ao carregar do Local Storage:", e);
-            return null;
         }
     }
 };
@@ -370,14 +349,6 @@ async function sincronizarDadosSupabase() {
         AppState.isLoading = true;
         Utils.setLoadingState(syncBtn, true);
 
-        // Carregar dados do Local Storage
-        const localData = Utils.loadFromLocalStorage('requisicoesData') || [];
-        AppState.allRequisicoesData = localData;
-        AppState.lastSyncTimestamp = Utils.loadFromLocalStorage('lastSyncTimestamp');
-
-        // Mostrar dados locais imediatamente
-        aplicarFiltros();
-
         // Mostrar loading na tabela
         tableBody.innerHTML = `
             <tr>
@@ -385,7 +356,7 @@ async function sincronizarDadosSupabase() {
                     <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
                         <div class="loading-spinner" style="width: 40px; height: 40px; border: 3px solid var(--border-color); border-top: 3px solid var(--primary-500); border-radius: 50%; animation: spin 1s linear infinite;"></div>
                         <div style="color: var(--text-primary); font-weight: 600;">Sincronizando dados...</div>
-                        <div style="color: var(--text-muted); font-size: 0.875rem;">Buscando atualizações do Supabase</div>
+                        <div style="color: var(--text-muted); font-size: 0.875rem;">Buscando dados da view e salvando na tabela espelho</div>
                     </div>
                 </td>
             </tr>
@@ -401,39 +372,39 @@ async function sincronizarDadosSupabase() {
         `;
         document.head.appendChild(style);
 
-        const currentSyncTimestamp = new Date().toISOString();
-        let query = supabaseClient.from(CONFIG.NOME_DA_VIEW).select('*').gt('qtdentregue', 0);
+        // 1. Buscar dados da view
+        const { data: viewData, error: viewError } = await supabaseClient
+            .from(CONFIG.NOME_DA_VIEW)
+            .select('*');
 
-        if (AppState.lastSyncTimestamp) {
-            query = query.or(`updated_at.gte.${AppState.lastSyncTimestamp},created_at.gte.${AppState.lastSyncTimestamp}`);
+        if (viewError) throw viewError;
+
+        // 2. Salvar na tabela espelho
+        if (viewData && viewData.length > 0) {
+            const { error: upsertError } = await supabaseClient
+                .from('requisicoes_espelho')
+                .upsert(viewData, { onConflict: 'itemrequisicaoid' });
+
+            if (upsertError) throw upsertError;
         }
 
-        const { data: newOrUpdatedData, error } = await query;
+        // 3. Ler da tabela espelho
+        const { data: espelhoData, error: espelhoError } = await supabaseClient
+            .from('requisicoes_espelho')
+            .select('*');
 
-        if (error) throw error;
+        if (espelhoError) throw espelhoError;
 
-        // Mesclar dados
-        if (newOrUpdatedData.length > 0) {
-            const dataMap = new Map(AppState.allRequisicoesData.map(item => [item.requisicaoid + item.codigo, item]));
-            newOrUpdatedData.forEach(item => {
-                dataMap.set(item.requisicaoid + item.codigo, {
-                    ...item,
-                    qtdbaixada: item.qtdbaixada || 0,
-                    status: item.status || CONFIG.SITUACAO_PADRAO
-                });
-            });
-            AppState.allRequisicoesData = Array.from(dataMap.values());
-        }
-
-        // Salvar no Local Storage
-        Utils.saveToLocalStorage('requisicoesData', AppState.allRequisicoesData);
-        Utils.saveToLocalStorage('lastSyncTimestamp', currentSyncTimestamp);
-        AppState.lastSyncTimestamp = currentSyncTimestamp;
+        AppState.allRequisicoesData = espelhoData.map(item => ({
+            ...item,
+            qtdbaixada: item.qtdbaixada || 0,
+            status: item.status || CONFIG.SITUACAO_PADRAO
+        }));
 
         aplicarFiltros();
 
         Utils.showNotification(
-            `Sincronização concluída! ${newOrUpdatedData.length} registros atualizados.`,
+            `Sincronização concluída! ${viewData.length} registros processados.`,
             'success'
         );
 
