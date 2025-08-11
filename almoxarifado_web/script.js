@@ -268,9 +268,9 @@ async function carregarDadosRequisicoes() {
 
 // === SINCRONIZAÇÃO ===
 function initSincronizacao() {
-    const syncSupabaseBtn = document.querySelector('.btn-primary[onclick="syncSupabase()"]');
+    const syncSupabaseBtn = document.getElementById('sync-supabase-btn');
     if (syncSupabaseBtn) {
-        syncSupabaseBtn.onclick = () => sincronizarDadosSupabase();
+        syncSupabaseBtn.addEventListener('click', sincronizarDadosSupabase);
     }
 }
 

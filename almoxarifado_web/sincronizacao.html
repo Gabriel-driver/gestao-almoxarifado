@@ -232,7 +232,7 @@
                             </div>
                         </div>
                         <div style="display: flex; gap: 0.5rem;">
-                            <button class="btn btn-primary" onclick="syncSupabase()">
+                            <button class="btn btn-primary" id="sync-supabase-btn">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M23 4v6h-6"/>
                                     <path d="M1 20v-6h6"/>
@@ -538,68 +538,5 @@
     </div>
 
     <script src="script.js?v=2.0"></script>
-    <script>
-        // Funções de sincronização
-        function syncSupabase() {
-            Utils.showNotification('Iniciando sincronização com Supabase...', 'info');
-            setTimeout(() => {
-                Utils.showNotification('Supabase sincronizado com sucesso! 1.247 registros processados.', 'success');
-            }, 3000);
-        }
-
-        function syncSharePoint() {
-            Utils.showNotification('Iniciando sincronização com SharePoint...', 'info');
-            setTimeout(() => {
-                Utils.showNotification('SharePoint sincronizado com sucesso! 89 registros processados.', 'success');
-            }, 2500);
-        }
-
-        function syncGmail() {
-            Utils.showNotification('Verificando novos e-mails...', 'info');
-            setTimeout(() => {
-                Utils.showNotification('3 novos e-mails processados.', 'success');
-            }, 2000);
-        }
-
-        function syncAll() {
-            const btn = event.target;
-            Utils.setLoadingState(btn, true);
-            Utils.showNotification('Iniciando sincronização completa...', 'info');
-            
-            setTimeout(() => {
-                Utils.setLoadingState(btn, false);
-                Utils.showNotification('Sincronização completa finalizada! Todas as fontes atualizadas.', 'success');
-            }, 5000);
-        }
-
-        function configSupabase() {
-            Utils.showNotification('Abrindo configurações do Supabase...', 'info');
-        }
-
-        function configSharePoint() {
-            Utils.showNotification('Abrindo configurações do SharePoint...', 'info');
-        }
-
-        function configGmail() {
-            Utils.showNotification('Abrindo configurações do Gmail...', 'info');
-        }
-
-        function enableAutoSync() {
-            Utils.showNotification('Sincronização automática ativada!', 'success');
-        }
-
-        function disableAutoSync() {
-            Utils.showNotification('Sincronização automática pausada.', 'warning');
-        }
-
-        // Inicialização
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('clear-sync-history-btn').addEventListener('click', () => {
-                if (confirm('Deseja limpar todo o histórico de sincronizações?')) {
-                    Utils.showNotification('Histórico de sincronizações limpo!', 'success');
-                }
-            });
-        });
-    </script>
 </body>
 </html>
