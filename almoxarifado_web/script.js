@@ -15,6 +15,7 @@ const CONFIG = {
 // Estado global da aplicação
 const AppState = {
     allRequisicoesData: [],
+    filteredRequisicoesData: [],
     isLoading: false,
     currentPage: '',
     sidebarCollapsed: false,
@@ -343,18 +344,19 @@ function aplicarFiltros() {
                (filters.situacao ? String(item.status || '').toLowerCase().includes(filters.situacao) : true);
     });
     
+    AppState.filteredRequisicoesData = dadosFiltrados;
     AppState.pagination.totalItems = dadosFiltrados.length;
     AppState.pagination.totalPages = Math.ceil(dadosFiltrados.length / AppState.pagination.itemsPerPage);
     AppState.pagination.currentPage = 1;
     
-    exibirRequisicoesPaginadas(dadosFiltrados);
+    exibirRequisicoesPaginadas();
     atualizarPaginacao();
 }
 
-function exibirRequisicoesPaginadas(todasRequisicoes) {
+function exibirRequisicoesPaginadas() {
     const startIndex = (AppState.pagination.currentPage - 1) * AppState.pagination.itemsPerPage;
     const endIndex = startIndex + AppState.pagination.itemsPerPage;
-    const requisicoesParaExibir = todasRequisicoes.slice(startIndex, endIndex);
+    const requisicoesParaExibir = AppState.filteredRequisicoesData.slice(startIndex, endIndex);
     exibirRequisicoes(requisicoesParaExibir);
     const paginationContainer = document.getElementById('pagination-container');
     if (paginationContainer) paginationContainer.style.display = AppState.pagination.totalPages > 1 ? 'flex' : 'none';
@@ -375,13 +377,15 @@ function configurarPaginacao() {
     prevBtn?.addEventListener('click', () => {
         if (AppState.pagination.currentPage > 1) {
             AppState.pagination.currentPage--;
-            aplicarFiltros();
+            exibirRequisicoesPaginadas();
+            atualizarPaginacao();
         }
     });
     nextBtn?.addEventListener('click', () => {
         if (AppState.pagination.currentPage < AppState.pagination.totalPages) {
             AppState.pagination.currentPage++;
-            aplicarFiltros();
+            exibirRequisicoesPaginadas();
+            atualizarPaginacao();
         }
     });
 }
